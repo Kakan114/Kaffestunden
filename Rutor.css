@@ -1,0 +1,67 @@
+/* Sticky toppsektion med logotyp och navigering */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #333;
+}
+
+.main-nav {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li a {
+  display: block;
+  padding: 8px 14px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s ease;
+}
+
+.main-nav li a:hover {
+  background-color: #55c216;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.intro {
+  max-width: 800px;
+  margin: 80px auto 40px;
+  padding: 0 20px;
+  text-align: center;
+  color: #333;
+}
+
+.intro h2 {
+  margin-bottom: 16px;
+}
+
+main img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 40px;
+}
