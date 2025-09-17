@@ -1,2 +1,91 @@
-eidjwiejhdiejdiejdiejdiemd
-denfjendejnd
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt – Kaffestunden</title>
+  <meta name="description" content="Kontakta Kaffestunden – formulär och kontaktuppgifter." />
+  <link rel="stylesheet" href="Rutor.css" />
+</head>
+<body>
+  <header class="main-header" role="banner">
+    <div class="wrap bar">
+      <div class="brand">
+        <img src="image.png" alt="Kaffestunden logotyp" />
+        <h1>KaffeStunden</h1>
+      </div>
+      <nav aria-label="Huvudmeny">
+        <ul>
+          <li><a href="meny.html">Meny</a></li>
+          <li><a href="fotoalbum.html">Fotoalbum</a></li>
+          <li><a href="hitta-oss.html">Hitta oss</a></li>
+          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a href="om-oss.html">Om oss</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <section aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt</h2>
+      <p class="lead">Hör av dig – vi svarar snabbt.</p>
+      <div id="form-status" role="status" aria-live="polite" class="success" hidden>✔️ Tack! Ditt meddelande har skickats.</div>
+      <form id="contact-form" novalidate>
+        <div>
+          <label for="name">Namn*</label>
+          <input id="name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Ditt namn" />
+          <p class="error" id="name-error" hidden>Minst 2 tecken krävs.</p>
+        </div>
+        <div>
+          <label for="email">E-post*</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="namn@example.com" />
+          <p class="error" id="email-error" hidden>Ange en giltig e-postadress.</p>
+        </div>
+        <div>
+          <label for="phone">Telefon</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" pattern="^[0-9 +()-]{6,}$" placeholder="070 123 45 67" />
+          <p class="error" id="phone-error" hidden>Ange ett giltigt telefonnummer.</p>
+        </div>
+        <div>
+          <label for="message">Meddelande*</label>
+          <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Skriv ditt ärende..."></textarea>
+          <p class="error" id="message-error" hidden>Minst 10 tecken krävs.</p>
+        </div>
+        <button class="primary" type="submit">Skicka</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="wrap">
+      © <span id="year"></span> Kaffestunden. Alla rättigheter förbehållna.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const errors = form.querySelectorAll('.error');
+      errors.forEach(el => el.hidden = true);
+      let valid = true;
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const phone = document.getElementById('phone');
+      const message = document.getElementById('message');
+      if (!name.checkValidity()) { document.getElementById('name-error').hidden = false; valid = false; }
+      if (!email.checkValidity()) { document.getElementById('email-error').hidden = false; valid = false; }
+      if (phone.value && !phone.checkValidity()) { document.getElementById('phone-error').hidden = false; valid = false; }
+      if (!message.checkValidity()) { document.getElementById('message-error').hidden = false; valid = false; }
+      if (!valid) return;
+      form.reset();
+      statusEl.hidden = false;
+      statusEl.focus();
+      setTimeout(() => { statusEl.hidden = true; }, 4000);
+    });
+  </script>
+</body>
+</html>

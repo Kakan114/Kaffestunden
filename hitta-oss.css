@@ -1,0 +1,31 @@
+.find-us {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fafafa; /* ljus bakgrund för kontrast */
+}
+
+.find-us h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.find-us p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.map-container {
+  max-width: 800px;       /* begränsar kartans maxstorlek */
+  margin: 0 auto;         /* centrerar */
+  border-radius: 15px;    /* rundade hörn */
+  overflow: hidden;       /* så att hörnen gäller även för kartan */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* snygg skugga */
+}
+
+.map-container iframe {
+  width: 100%;            /* fyller alltid hela container */
+  height: 450px;          /* fast höjd */
+  border: 0;              /* tar bort standardkant */
+}
