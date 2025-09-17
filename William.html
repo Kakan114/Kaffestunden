@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="William.css">
+  <link rel="preload" as="image" href="William.jpeg">
+  <link rel="preload" as="image" href="Kaffe1.jpg">
+  <link rel="preload" as="image" href="kaffe2.jpg">
+  <link rel="preload" as="image" href="kaffe3.jpg">
+  <link rel="preload" as="image" href="kaffe4.jpg">
+  <title>William - KaffeStunden</title>
+</head>
+
+<body>
+  <header>
+    <h1>William - Ekonomiansvarig</h1>
+  </header>
+
+  <section class="profil-container">
+    <img src="William.jpeg" alt="William" class="profil-bild">
+    <div class="profil-text">
+      <p>Som ekonomiansvarig på KaffeStunden har jag det övergripande ansvaret för företagets ekonomi och finansiella planering. Jag ser till att bokföring, fakturering och rapportering sker korrekt och i tid, samt följer noggrant upp kostnader och intäkter för att säkerställa att verksamheten är lönsam. Jag deltar i budgetplanering och strategiska beslut, analyserar ekonomiska trender och identifierar möjligheter till förbättringar. Dessutom arbetar jag nära ledningsgruppen för att säkerställa att resurser används effektivt, investeringar är hållbara och att företaget växer på ett stabilt sätt. Mitt mål är att skapa en ekonomisk struktur som stödjer både dagens verksamhet och långsiktig utveckling, samtidigt som jag ser till att alla beslut grundas i korrekta siffror och analyser</p>
+    </div>
+  </section>
+
+  <section class="slideshow-container">
+    <div class="slide active">
+      <img src="Kaffe1.jpg" alt="Bild 1">
+    </div>
+    <div class="slide">
+      <img src="kaffe2.jpg" alt="Bild 2">
+    </div>
+    <div class="slide">
+      <img src="kaffe3.jpg" alt="Bild 3">
+    </div>
+    <div class="slide">
+      <img src="kaffe4.jpg" alt="Bild 4">
+    </div>
+
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  </section>
+
+  <script src="William.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+/* Grundinställningar */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #f7f2eb, #e6d8c4);
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #9f9088;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+.profil-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 95%;                /* nästan full bredd, lite marginal */
+  max-width: 95%;         /* begränsar hur bred boxen blir på stora skärmar */
+  margin: 30px auto;         /* centrerar boxen och ger topp/botten-marginal */
+  min-height: 300px;         /* bra höjd */
+  padding: 30px 20px;        /* inre luft */
+  background-color: #fff8f0; /* ljus bakgrund */
+  border-radius: 20px;       /* rundade kanter */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* flytande känsla med skugga */
+  box-sizing: border-box;
+}
+
+.profil-bild {
+  width: 280px;                  /* lagom stor bild */
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.profil-text {
+  flex: 1;
+  line-height: 1.6;
+  font-size: 1.2em;
+}
+
+/* Bildspel */
+.slideshow-container {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  height: 400px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  background-color: #fff8f0;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.slide.active {
+  display: block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(107,66,38,0.6);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background-color: rgba(219, 214, 211, 0.9);
+}
+
+
