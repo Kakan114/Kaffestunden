@@ -1,0 +1,52 @@
+.kaffe-meny {
+  text-align: center;
+  padding: 20px 10px; /* tajtare sektion */
+}
+
+.kaffe-meny h2 {
+  font-size: 2rem;
+  margin-bottom: 10px; /* tajtare mot rutorna */
+}
+
+.meny-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* gör att kolumner fyller ytan */
+  gap: 10px; /* verkligt mellanrum mellan korten */
+  justify-items: stretch; /* låt korten fylla kolumnens bredd */
+  max-width: 1100px; /* begränsa totalbredden så det inte blir stora "hål" */
+  margin: 0 auto; /* centrera gridet */
+}
+
+.kaffe-ruta {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 15px 10px;
+  width: 100%; /* fyll kolumnen */
+  box-sizing: border-box; /* inkludera padding i bredden */
+  transition: all 0.25s ease;
+  cursor: pointer; /* gör så det känns klickbart */
+}
+
+/* Hover-effekt */
+.kaffe-ruta:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Titel och pris stil */
+.kaffe-ruta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.kaffe-ruta p {
+  font-size: 1rem;
+  color: #666;
+}
+
+#meny {
+    scroll-margin-top: 90px; /* justera efter headerns höjd */
+    padding-top: 20px;       /* lite luft över rutorna */
+}

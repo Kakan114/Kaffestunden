@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaffestunden</title>
     <link rel="stylesheet" href="Rutor.css">
-    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="meny.css">
+    <link rel="stylesheet" href="hitta-oss.css">
+    <link rel="stylesheet" href="omoss.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
 </head>
+
 <body>
     <header class="main-header">
         <div class="brand">
@@ -16,24 +27,115 @@
             <ul class="main-nav">
                 <li><a href="#meny">Meny</a></li>
                 <li><a href="#fotoalbum">Fotoalbum</a></li>
-                <li><a href="#hitta-oss">Hitta Oss</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
                 <li><a href="#om-oss">Om Oss</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#hitta-oss">Hitta Oss</a></li>
+                
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="intro">
-            <h2>Bryggt för att överleva tentan</h2>
-            <p>
-                Kaffestunden är ett företag grundat med studentens vardag i fokus. Vi erbjuder kvalitetskaffe som kombinerar god smak
-                med den energi som krävs för att möta akademiska utmaningar. Vårt mål är att skapa en pålitlig kaffepartner för
-                studenter i alla skeden av sin utbildning - från första föreläsningen till sista tentan. Genom att förena funktion och
-                smak vill vi bidra till en mer hållbar och fokuserad studietid.
-            </p>
-        </section>
-        <img src="image.png" alt="KaffeStunden illustration">
+        <div class="intro-container">
+            <section class="intro">
+                <h2>Bryggt för att överleva tentan</h2>
+                <p>
+                    Kaffestunden är ett företag grundat med studentens vardag i fokus. Vi erbjuder kvalitetskaffe som
+                    kombinerar god smak
+                    med den energi som krävs för att möta akademiska utmaningar. Vårt mål är att skapa en pålitlig
+                    kaffepartner för
+                    studenter i alla skeden av sin utbildning - från första föreläsningen till sista tentan. Genom att
+                    förena funktion och
+                    smak vill vi bidra till en mer hållbar och fokuserad studietid.
+                </p>
+
+            </section>
+
+
+            <section id="meny" class="kaffe-meny">
+                <h2>Meny</h2>
+                <div class="meny-grid">
+                    <div class="kaffe-ruta">
+                        <h3>Bryggkaffe</h3>
+                        <p>25 kr</p>
+                    </div>
+                    <div class="kaffe-ruta">
+                        <h3>Cappuccino</h3>
+                        <p>35 kr</p>
+                    </div>
+                    <div class="kaffe-ruta">
+                        <h3>Latte</h3>
+                        <p>38 kr</p>
+                    </div>
+                    <div class="kaffe-ruta">
+                        <h3>Espresso</h3>
+                        <p>20 kr</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="Fotoalbum class="kaffe-album>
+                <h2>Fotoalbum</h2>
+                
+            </section>
     </main>
+
+ 
+
+
+
+    <section id="om-oss" class="about">
+        <h2>Om Oss</h2>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <a href="William.html">
+                <img src="William.jpeg" alt="William bild">
+                </a>
+                <h3>William- Ekonomiansvarig
+                </h3>
+                <p>Spelar bort företagets pengar på LeoVegas</p>
+            </div>
+            <div class="about-card">  
+                <a href="Darin.html">              
+                <img src="DK.jpeg" alt="Darin bild">
+                </a>
+                <h3>Darin- IT-Ansvarig</h3>
+                <p>Vår egna IT-ninja- osynlig tills något slutar fungera</p>
+            </div>
+            <div class="about-card">
+                <a href="Natalie.html">
+                <img src="Nat.jpg" alt="Natalie bild">
+                </a>
+                <h3>Natalie- VD</h3>
+                <p>Hej</p>
+            </div>
+            <div class="about-card">
+                <img src="bild4.jpg" alt="Denis bild">
+                <h3>Denis- Marknadsförare</h3>
+                <p>Kort text om bilden eller sektionen.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="hitta-oss" class="find-us">
+        <h2>Hitta Oss</h2>
+        <p>Du hittar oss på Fakultetsgatan 1, 702 81, Örebro.</p>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2047.1719604018055!2d15.228707715925125!3d59.25278998162752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c14ab1234567%3A0x89abcdef12345678!2sFakultetsgatan%201%2C%20702%2081%20%C3%96rebro!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+
+
+
 </body>
+
 </html>
