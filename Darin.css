@@ -1,0 +1,399 @@
+/* Behaglig scroll utan inline-CSS i HTML */
+html { scroll-behavior: smooth; }
+
+/* Skip-link (syns bara vid fokus) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #fff;
+  color: #111;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+.skip-link:focus { left: 8px; }
+
+/* Header layout */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e6e6e6;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand .site-title { font-weight: 700; text-decoration: none; color: #2b2b2b; }
+.brand .logo img { width: 36px; height: 36px; object-fit: cover; border-radius: 8px; }
+
+/* Hamburger-knapp */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 40px; height: 40px;
+  align-items: center; justify-content: center;
+  border: 1px solid #ddd; border-radius: 10px;
+  background: #fff; cursor: pointer;
+}
+.nav-toggle-bar { width: 18px; height: 2px; background: #333; }
+
+/* Mobilmeny (default = dold) */
+.main-nav {
+  position: fixed;
+  top: 64px; right: 0; bottom: 0;
+  width: 75vw; max-width: 320px;
+  background: #fff;
+  border-left: 1px solid #eee;
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  padding: 16px;
+  box-shadow: -10px 0 20px rgba(0,0,0,0.08);
+}
+.main-nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 12px;
+}
+.main-nav a { text-decoration: none; color: #2b2b2b; font-weight: 500; }
+
+/* När menyn är öppen (tilläggs via JS) */
+body.nav-open .main-nav { transform: translateX(0); }
+
+/* Desktop-läge: visa menyn inline, dölj hamburgern */
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+  .main-nav {
+    position: static; transform: none !important;
+    width: auto; max-width: none;
+    box-shadow: none; border: 0; padding: 0;
+  }
+  .main-nav ul {
+    display: flex; align-items: center; gap: 18px;
+  }
+}
+
+/* Hero-sektion */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 70vh; /* tar upp det mesta av skärmen */
+  padding: 40px 20px;
+  background: linear-gradient(to bottom right, #f7f2eb, #e6d8c4); /* subtil bakgrund */
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  color: #2b2b2b;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  color: #444;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #6b4226; /* kaffe-brun */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.25s;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  background-color: #4e2f1a; /* mörkare vid hover */
+}
+
+
+/* ===== Om mig ===== */
+.about {
+  padding: 56px 20px;
+  background: #fff;
+}
+
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  /* Mobil: en kolumn (bild ovanför text) */
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+/* Bilddelen */
+.about-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  object-fit: cover;
+  /* Håll gärna bilden kvadratisk/mellanhög:
+     kombinera med container-bredden i desktop-läge nedan */
+}
+
+/* Textdelen */
+.about-content h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #2b2b2b;
+}
+
+.about-content p {
+  line-height: 1.7;
+  color: #3a3a3a;
+  margin: 0 0 12px;
+}
+
+.about-facts {
+  margin: 12px 0 16px;
+  padding-left: 18px;
+  color: #444;
+}
+
+.link-cta {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  color: #6b4226;      /* kaffe-brun accent */
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.link-cta:hover,
+.link-cta:focus {
+  border-color: #6b4226;
+}
+
+/* Desktop: två kolumner */
+@media (min-width: 900px) {
+  .about-inner {
+    grid-template-columns: 420px 1fr; /* bild | text */
+    gap: 36px;
+  }
+  .about-media img {
+    aspect-ratio: 1 / 1;   /* gör bilden behagligt kvadratisk */
+    object-fit: cover;
+  }
+}
+
+/* ===== Slideshow ===== */
+.slideshow { padding: 56px 20px; background: #fff; }
+.slideshow-inner { max-width: 1100px; margin: 0 auto; }
+
+.slideshow-viewport {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff8f0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  min-height: 360px;
+}
+
+.slide { display: none; margin: 0; }
+.slide.is-active { display: block; }
+.slide img {
+  width: 100%; height: 420px; object-fit: cover; display: block;
+}
+.slide figcaption {
+  padding: 10px 14px; font-size: 0.95rem; color: #444; background: #fff; 
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Kontroller */
+.slideshow-controls {
+  display: flex; justify-content: center; gap: 12px; margin-top: 12px;
+}
+.prev, .next {
+  border: 1px solid #ddd; background: #fff; border-radius: 10px;
+  padding: 10px 14px; font-size: 20px; cursor: pointer;
+  transition: background-color .2s, box-shadow .2s;
+}
+.prev:hover, .next:hover,
+.prev:focus, .next:focus {
+  background: #f8f8f8; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Dots (valfritt) */
+.slideshow-dots {
+  display: flex; justify-content: center; gap: 8px; margin-top: 10px;
+}
+.dot {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid #ddd; background: #fff; cursor: pointer;
+}
+.dot.is-active { background: #6b4226; color: #fff; border-color: #6b4226; }
+
+/* Responsiv höjd */
+@media (max-width: 599px) {
+  .slide img { height: 260px; }
+}
+
+
+/* ===== Projekt ===== */
+.projects { padding: 56px 20px; background: #fafafa; }
+.projects-inner { max-width: 1100px; margin: 0 auto; }
+
+.projects h2 { font-size: 2rem; margin-bottom: 16px; color: #2b2b2b; }
+
+.projects-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Projektkort */
+.project-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.project-media img {
+  width: 100%;
+  height: 160px;      /* mobilvänlig */
+  object-fit: cover;
+  display: block;
+}
+
+.project-body {
+  padding: 12px 14px;
+}
+
+.project-title {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: #2b2b2b;
+}
+
+.project-meta {
+  font-size: 0.9rem; color: #666; margin-bottom: 8px;
+}
+
+.project-summary {
+  font-size: 0.95rem; color: #3a3a3a; line-height: 1.6;
+}
+
+.project-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 10px 14px; border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.tag {
+  font-size: 0.8rem; color: #6b4226; background: #f4ebe4;
+  border-radius: 999px; padding: 4px 8px;
+}
+
+/* Liten höjdjustering desktop */
+@media (min-width: 900px) {
+  .project-media img { height: 180px; }
+}
+
+/* ===== Projekt-kontroller ===== */
+.projects-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.projects-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.projects-controls input,
+.projects-controls select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* ===== Kompetenser (skillbars) ===== */
+.skills { padding: 56px 20px; background: #fff; }
+.skills-inner { max-width: 1100px; margin: 0 auto; }
+
+#skills h2 { font-size: 2rem; margin-bottom: 8px; color: #2b2b2b; }
+.skills-lead { color: #444; margin-bottom: 16px; }
+
+.skill-list { display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; }
+
+.skill {
+  display: grid;
+  gap: 6px;
+}
+
+.skill-label {
+  display: flex; align-items: baseline; justify-content: space-between;
+  font-weight: 600; color: #2e2e2e;
+}
+
+.skill-bar {
+  height: 12px;
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0;                                 /* startvärde */
+  background: linear-gradient(90deg, #8b5a35, #6b4226);
+  border-radius: 999px;
+  transition: width 900ms ease;             /* animation */
+}
+
+
+/* Snyggare på större skärmar */
+@media (min-width: 768px) {
+  .skill-list { grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+}
+
+/* ===== Scroll-reveal (diskret och stilrent) ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 420ms ease, transform 420ms ease;
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger på projektkort (när du lägger .reveal på dem) */
+.projects-grid .project-card.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 360ms ease, transform 360ms ease;
+}
+.projects-grid .project-card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.main-header { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }

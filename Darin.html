@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaffestunden</title>
+    <link rel="stylesheet" href="Rutor.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="meny.css">
+    <link rel="stylesheet" href="hitta-oss.css">
+    <link rel="stylesheet" href="omoss.css">
+    <link rel="stylesheet" href="Darin.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="Darin.js" defer></script>
+
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+<header class="main-header" role="banner">
+  <div class="brand">
+    <a href="Index.html" class="logo" aria-label="Kaffestunden startsida">
+      <img src="image.png" alt="Kaffestunden logotyp">
+    </a>
+    <a href="Index.html" class="site-title">KaffeStunden</a>
+  </div>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+
+  <nav id="main-nav" class="main-nav" aria-label="Huvudmeny">
+    <ul>
+      <li><a href="Index.html#meny">Meny</a></li>
+      <li><a href="Index.html#fotoalbum">Fotoalbum</a></li>
+      <li><a href="Index.html#om-oss">Om oss</a></li>
+      <li><a href="contacts.html">Kontakt</a></li>
+      <li><a href="Index.html#hitta-oss">Hitta oss</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+  <!-- ditt sidinnehåll kommer här -->
+   <section class="hero reveal">
+  <div class="hero-content">
+    <h1>Darin – IT-ansvarig</h1>
+    <p class="tagline">Bygger robusta, snabba och tillgängliga lösningar för webben.</p>
+    <a href="#projects" class="cta-button">Se mina projekt</a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-inner">
+    <figure class="about-media reveal">
+      <!-- Byt filnamn till din riktiga bild -->
+      <img src="DK.jpeg" alt="Porträtt av Darin" loading="lazy">
+      <figcaption class="sr-only">Darin, IT-ansvarig</figcaption>
+    </figure>
+
+    <div class="about-content reveal">
+      <h2>Om mig</h2>
+      <p>
+        Jag heter Darin och arbetar som IT-ansvarig på Kaffestunden. Jag brinner för robusta, snabba och
+        tillgängliga webblösningar – från struktur och performance till mjuk produktdesign.
+      </p>
+      <p>
+        I mitt arbete fokuserar jag på rena gränssnitt, hållbar kod och tydlig informationsarkitektur. Jag gillar
+        att kombinera mätbar prestanda med en varm, inbjudande upplevelse.
+      </p>
+
+      <!-- Liten fakta-lista (valfritt) -->
+      <ul class="about-facts">
+        <li>Favoritstack: HTML • CSS • JS</li>
+        <li>Fokus: Prestanda & tillgänglighet</li>
+        <li>Kaffe: Espresso doppio ☕</li>
+      </ul>
+
+      <!-- Länk/CTA till projektsektion (nästa steg) -->
+      <a href="#projects" class="link-cta">Se mina projekt →</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="slideshow reveal" aria-labelledby="slideshow-title">
+  <div class="slideshow-inner">
+    <h2 id="slideshow-title">Galleri</h2>
+
+    <div class="slideshow-viewport" role="group" aria-roledescription="bildspel" aria-label="Galleri med fyra bilder">
+      <!-- Slide 1 -->
+      <figure class="slide is-active">
+        <img src="Kaffe1.jpg" alt="Man brygger kaffe i pour-over" loading="lazy">
+        <figcaption>Pour-over i labbmiljö</figcaption>
+      </figure>
+
+      <!-- Slide 2 -->
+      <figure class="slide">
+        <img src="kaffe2.jpg" alt="Espresso shot som extraheras" loading="lazy">
+        <figcaption>Perfekt extraherad espresso</figcaption>
+      </figure>
+
+      <!-- Slide 3 -->
+      <figure class="slide">
+        <img src="kaffe3.jpg" alt="Cappuccino med latte art" loading="lazy">
+        <figcaption>Latte art</figcaption>
+      </figure>
+
+      <!-- Slide 4 -->
+      <figure class="slide">
+        <img src="kaffe4.jpg" alt="Arbetsstation med skärm och kaffe" loading="lazy">
+        <figcaption>Fokusläge vid skrivbordet</figcaption>
+      </figure>
+    </div>
+
+    <!-- Kontroller -->
+    <div class="slideshow-controls">
+      <button class="prev" type="button" aria-label="Föregående bild">‹</button>
+      <button class="next" type="button" aria-label="Nästa bild">›</button>
+    </div>
+
+    <!-- Valfritt: indikatorer -->
+    <div class="slideshow-dots" role="tablist" aria-label="Bildväljare">
+      <button class="dot is-active" role="tab" aria-selected="true" aria-controls="slide-1" tabindex="0">1</button>
+      <button class="dot" role="tab" aria-selected="false" aria-controls="slide-2" tabindex="-1">2</button>
+      <button class="dot" role="tab" aria-selected="false" aria-controls="slide-3" tabindex="-1">3</button>
+      <button class="dot" role="tab" aria-selected="false" aria-controls="slide-4" tabindex="-1">4</button>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills reveal" aria-labelledby="skills-title">
+  <div class="skills-inner">
+    <h2 id="skills-title">Kompetenser</h2>
+    <p class="skills-lead">En översikt av mina verktyg och fokusområden.</p>
+
+    <ul class="skill-list" role="list">
+      <!-- Varje rad = en kompetens -->
+      <li class="skill" data-level="85" data-skill="HTML">
+        <div class="skill-label">
+          <span class="skill-name">HTML</span>
+          <span class="skill-value" aria-hidden="true">85%</span>
+        </div>
+        <div class="skill-bar" aria-label="HTML 85 procent" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+
+      <li class="skill" data-level="80" data-skill="CSS">
+        <div class="skill-label">
+          <span class="skill-name">CSS</span>
+          <span class="skill-value" aria-hidden="true">80%</span>
+        </div>
+        <div class="skill-bar" aria-label="CSS 80 procent" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+
+      <li class="skill" data-level="70" data-skill="JavaScript">
+        <div class="skill-label">
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-value" aria-hidden="true">70%</span>
+        </div>
+        <div class="skill-bar" aria-label="JavaScript 70 procent" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+
+      <li class="skill" data-level="65" data-skill="Git">
+        <div class="skill-label">
+          <span class="skill-name">Git</span>
+          <span class="skill-value" aria-hidden="true">65%</span>
+        </div>
+        <div class="skill-bar" aria-label="Git 65 procent" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+
+      <li class="skill" data-level="60" data-skill="Tillgänglighet">
+        <div class="skill-label">
+          <span class="skill-name">Tillgänglighet</span>
+          <span class="skill-value" aria-hidden="true">60%</span>
+        </div>
+        <div class="skill-bar" aria-label="Tillgänglighet 60 procent" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="projects" class="projects" aria-labelledby="projects-title">
+  <div class="projects-inner">
+    <h2 id="projects-title" class="reveal">Projekt</h2>
+
+    <!-- (VG i nästa steg: filter/sort UI kan hamna här) -->
+
+<div class="projects-controls">
+  <label>
+    Filtrera (titel/kund/tagg):
+    <input type="text" id="filterInput" placeholder="Skriv för att filtrera...">
+  </label>
+
+  <label>
+    Sortera:
+    <select id="sortSelect">
+      <option value="year-desc">År (nyast först)</option>
+      <option value="year-asc">År (äldst först)</option>
+      <option value="title-asc">Titel A–Ö</option>
+      <option value="title-desc">Titel Ö–A</option>
+    </select>
+  </label>
+</div>
+
+    <div class="projects-grid" id="projects-grid" role="list">
+      <!-- JS renderar kort här -->
+    </div>
+  </div>
+</section>
+
+</main>
+    
+</body>
+</html>
