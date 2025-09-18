@@ -1,3 +1,85 @@
+/* Grundinställningar för navigering */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #9f9088;
+  color: #fff;
+}
+
+.main-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.main-nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Grundutseende */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #9f9088;
+  color: #fff;
+}
+
+.main-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobil-läge */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;              /* gömd som standard */
+    flex-direction: column;     /* stapla länkar */
+    margin-top: 10px;
+  }
+
+  .main-nav.show {
+    display: flex;              /* visas när man klickar */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Profilens egen header (på sidan) */
 .profil-header {
   text-align: center;
@@ -106,3 +188,49 @@ header {
 }
 
 
+.text {
+  font-size: 14px;
+}
+
+/* Mobil först (standard) */
+.profil-container {
+  flex-direction: column;  /* Lägg bilden över texten på små skärmar */
+  align-items: center;
+  text-align: center;
+}
+
+.profil-bild {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.profil-text {
+  font-size: 1em;
+}
+
+/* När viewporten är minst 768px (surfplatta/dator) */
+@media (min-width: 768px) {
+  .profil-container {
+    flex-direction: row;   /* Bild + text bredvid varandra */
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .profil-bild {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 0;
+  }
+
+  .profil-text {
+    font-size: 1.2em;
+  }
+}
+
+/* Stora skärmar >1200px */
+@media (min-width: 1200px) {
+  .profil-text {
+    font-size: 1.4em;
+  }
+}

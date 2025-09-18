@@ -1,0 +1,56 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* gör så loggan ligger till vänster och knappen till höger */
+  gap: 12px;
+  padding: 16px;
+  background: #9f9088;
+  color: #fff;
+  text-align: initial;
+  position: relative;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  margin-left: auto;   /* detta trycker knappen längst till höger */
+}
+
+
+/* Horisontell meny på desktop */
+.main-nav{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  gap:16px;
+}
+.main-nav a{
+  color:#fff;
+  text-decoration:none;
+}
+
+
+/* ===== Mobil ===== */
+@media (max-width:768px){
+  .nav-toggle{ display:inline-block; }
+
+  /* Göm menyn som standard och fäll ner under headern när aktiv */
+  .main-nav{
+    display:none;
+    position:absolute;
+    left:0; right:0; top:100%;
+    background:#9f9088;
+    padding:12px 16px;
+    flex-direction:column;
+    gap:10px;
+    border-radius:0 0 12px 12px;
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+  }
+  .main-nav.show{ display:flex; }
+}

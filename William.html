@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="William.css">
-  <link rel="stylesheet" href="meny.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="Rutor.css">
-  <link rel="stylesheet" href="hitta-oss.css">
-  <link rel="stylesheet" href="omoss.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="preload" as="image" href="William.jpeg">
-  <link rel="preload" as="image" href="Kaffe1.jpg">
-  <link rel="preload" as="image" href="kaffe2.jpg">
-  <link rel="preload" as="image" href="kaffe3.jpg">
-  <link rel="preload" as="image" href="kaffe4.jpg">
+  <link rel="stylesheet" href="William.css" />
+  <link rel="stylesheet" href="meny.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="Rutor.css" />
+  <link rel="stylesheet" href="hitta-oss.css" />
+  <link rel="stylesheet" href="omoss.css" />
+  <!-- NY: lägg den här sist -->
+  <link rel="stylesheet" href="hamburger.css" />
+
+  <link rel="preload" as="image" href="William.jpeg" />
+  <link rel="preload" as="image" href="Kaffe1.jpg" />
+  <link rel="preload" as="image" href="kaffe2.jpg" />
+  <link rel="preload" as="image" href="kaffe3.jpg" />
+  <link rel="preload" as="image" href="kaffe4.jpg" />
   <title>William - KaffeStunden</title>
 </head>
-
 <body>
 
   <!-- Meny -->
@@ -25,8 +27,13 @@
     <div class="brand">
       <h1>KaffeStunden</h1>
     </div>
+
+    <!-- Hamburgar-knapp (syns på mobil) -->
+    <button class="nav-toggle" aria-label="Meny" aria-controls="main-nav" aria-expanded="false">☰</button>
+
+    <!-- Navigationsmeny -->
     <nav>
-      <ul class="main-nav">
+      <ul id="main-nav" class="main-nav">
         <li><a href="index.html#meny">Meny</a></li>
         <li><a href="index.html#fotoalbum">Fotoalbum</a></li>
         <li><a href="index.html#om-oss">Om Oss</a></li>
@@ -36,45 +43,30 @@
     </nav>
   </header>
 
-  <!-- Titel för William -->
+  <!-- Titel -->
   <h1 class="profil-header">William - Ekonomiansvarig</h1>
 
-  <!-- Profilbeskrivning -->
+  <!-- Profil -->
   <section class="profil-container">
-    <img src="William.jpeg" alt="William" class="profil-bild">
+    <img src="William.jpeg" alt="William" class="profil-bild" />
     <div class="profil-text">
       <p>
-        Som ekonomiansvarig på KaffeStunden har jag det övergripande ansvaret för företagets ekonomi och finansiella
-        planering. Jag ser till att bokföring, fakturering och rapportering sker korrekt och i tid, samt följer noggrant
-        upp kostnader och intäkter för att säkerställa att verksamheten är lönsam. Jag deltar i budgetplanering och
-        strategiska beslut, analyserar ekonomiska trender och identifierar möjligheter till förbättringar. Dessutom
-        arbetar jag nära ledningsgruppen för att säkerställa att resurser används effektivt, investeringar är hållbara
-        och att företaget växer på ett stabilt sätt. Mitt mål är att skapa en ekonomisk struktur som stödjer både dagens
-        verksamhet och långsiktig utveckling, samtidigt som jag ser till att alla beslut grundas i korrekta siffror och
-        analyser.
+        Som ekonomiansvarig på KaffeStunden har jag det övergripande ansvaret för företagets ekonomi och finansiella planering...
       </p>
     </div>
   </section>
 
   <!-- Bildspel -->
   <section class="slideshow-container">
-    <div class="slide active">
-      <img src="Kaffe1.jpg" alt="Bild 1">
-    </div>
-    <div class="slide">
-      <img src="kaffe2.jpg" alt="Bild 2">
-    </div>
-    <div class="slide">
-      <img src="kaffe3.jpg" alt="Bild 3">
-    </div>
-    <div class="slide">
-      <img src="kaffe4.jpg" alt="Bild 4">
-    </div>
-
+    <div class="slide active"><img src="Kaffe1.jpg" alt="Bild 1" /></div>
+    <div class="slide"><img src="kaffe2.jpg" alt="Bild 2" /></div>
+    <div class="slide"><img src="kaffe3.jpg" alt="Bild 3" /></div>
+    <div class="slide"><img src="kaffe4.jpg" alt="Bild 4" /></div>
     <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
     <button class="next" onclick="changeSlide(1)">&#10095;</button>
   </section>
 
+  <!-- Din befintliga JS för bildspel + meny-toggle läggs här -->
   <script src="William.js"></script>
 </body>
 </html>
