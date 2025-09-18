@@ -1,3 +1,13 @@
+/* Profilens egen header (på sidan) */
+.profil-header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+
 /* Grundinställningar */
 body {
   margin: 0;
