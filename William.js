@@ -9,28 +9,46 @@ if (btn && nav) {
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-  // Stäng menyn när man klickar en länk på mobil
-  nav.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A' && window.matchMedia('(max-width: 768px)').matches) {
-      nav.classList.remove('show');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
+
 }
 
-
-
-
+// --- Bildspel ---
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
-showSlide(slideIndex);
 
-function changeSlide(n) {
-  slides[slideIndex].classList.remove('active');
-  slideIndex += n;
-  if (slideIndex >= slides.length) slideIndex = 0;
-  if (slideIndex < 0) slideIndex = slides.length - 1;
+function showSlide(n) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slideIndex = (n + slides.length) % slides.length;
   slides[slideIndex].classList.add('active');
 }
 
+// Visa första bilden när sidan laddas
+showSlide(slideIndex);
 
+function changeSlide(n) {
+  showSlide(slideIndex + n);
+}
+
+// --- Axios: läs in projekt från JSON ---
+axios.get('William-projects.json')
+  .then(response => {
+    const projekt = response.data;
+    const container = document.getElementById('projekt-container');
+
+    projekt.forEach(p => {
+      const div = document.createElement('div');
+      div.classList.add('projekt-kort');
+
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.title}">
+        <h2>${p.title}</h2>
+        <p><strong>Kund:</strong> ${p.client}</p>
+        <p><strong>År:</strong> ${p.year}</p>
+        <p>${p.summary}</p>
+        <p><strong>Taggar:</strong> ${p.tags.join(', ')}</p>
+      `;
+
+      container.appendChild(div);
+    });
+  })
+  .catch(error => console.error("Fel vid inläsning:", error));

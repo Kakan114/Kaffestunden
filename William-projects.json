@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Formulär med realtidsfeedback",
+    "client": "Kaffestunden",
+    "year": 2025,
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "summary": "Skapade ett kontaktformulär där användaren får direkt feedback när de fyller i namn, e-post och meddelande.",
+    "image": "Kaffe1.jpg"
+  },
+  {
+    "title": "Responsiv dryckesmeny",
+    "client": "Kaffestunden",
+    "year": 2025,
+    "tags": ["HTML", "CSS", "Grid"],
+    "summary": "Designade en responsiv meny med kort för varje kaffe- och te-dryck som fungerar på både mobil och desktop.",
+    "image": "kaffe2.jpg"
+  },
+  {
+    "title": "Manuellt bildspel med piltangenter",
+    "client": "Kaffestunden",
+    "year": 2025,
+    "tags": ["JavaScript", "A11y"],
+    "summary": "Implementerade ett bildspel som användaren kan navigera med knappar eller tangentbord, utan autoplay.",
+    "image": "kaffe3.jpg"
+  },
+  {
+    "title": "Mobil- och desktopmeny",
+    "client": "Kaffestunden",
+    "year": 2025,
+    "tags": ["Responsiv", "Navicon", "ARIA"],
+    "summary": "Gjorde två menyversioner: en hamburgermeny för mobiler och en alltid synlig meny för större skärmar med aria-attribut.",
+    "image": "kaffe4.jpg"
+  },
+  {
+    "title": "Dynamisk projektsektion",
+    "client": "Kaffestunden",
+    "year": 2025,
+    "tags": ["Axios", "JSON", "DOM"],
+    "summary": "Läste in projekten från en JSON-fil med Axios och renderade dem automatiskt i ett flexibelt grid-system.",
+    "image": "Kaffe1.jpg"
+  }
+]

@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="Rutor.css" />
   <link rel="stylesheet" href="hitta-oss.css" />
   <link rel="stylesheet" href="omoss.css" />
-  <!-- NY: lägg den här sist -->
   <link rel="stylesheet" href="hamburger.css" />
 
   <link rel="preload" as="image" href="William.jpeg" />
@@ -18,10 +17,10 @@
   <link rel="preload" as="image" href="kaffe2.jpg" />
   <link rel="preload" as="image" href="kaffe3.jpg" />
   <link rel="preload" as="image" href="kaffe4.jpg" />
+
   <title>William - KaffeStunden</title>
 </head>
 <body>
-
   <!-- Meny -->
   <header class="main-header">
     <div class="brand">
@@ -56,6 +55,12 @@
     </div>
   </section>
 
+  <!-- Container där Axios kommer ladda in projekten -->
+  <section>
+    <h2>Mina projekt</h2>
+    <div id="projekt-container"></div>
+  </section>
+
   <!-- Bildspel -->
   <section class="slideshow-container">
     <div class="slide active"><img src="Kaffe1.jpg" alt="Bild 1" /></div>
@@ -66,7 +71,9 @@
     <button class="next" onclick="changeSlide(1)">&#10095;</button>
   </section>
 
-  <!-- Din befintliga JS för bildspel + meny-toggle läggs här -->
-  <script src="William.js"></script>
+  <!-- JS ska alltid ligga sist i body -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="script.js"></script>  <!-- Axios-projekt -->
+<script src="William.js"></script>  <!-- Bildspel -->
 </body>
 </html>
