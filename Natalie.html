@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
        <link rel="stylesheet" href="Natalie.css">
     <title>Natalie</title>
+    <meta name="description" content="Kontakta Kaffestunden – formulär och kontaktuppgifter." />
 </head>
+
 <body>
+    <header>
     <h1>Natalie - VD</h1>
     <div style="text-align:center;">
       <img src="Nat.jpg" alt="Natalies bild">    
     </div>
-   
+   <nav aria-label="Huvudmeny"></nav>
+   <ul>
+<li><a href="meny.html">Meny</a></li>
+          <li><a href="fotoalbum.html">Fotoalbum</a></li>
+          <li><a href="hitta-oss.html">Hitta oss</a></li>
+          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a href="om-oss.html">Om oss</a></li>
+
+
+   </ul>
+</nav>
+<h1>Mitt Fotoalbum</h1>
+
+  <div class="album">
+    <img src="bild1.jpg" alt="Bild 1">
+    <img src="bild2.jpg" alt="Bild 2">
+    <img src="bild3.jpg" alt="Bild 3">
+    <img src="bild4.jpg" alt="Bild 4">
+  </div>
+</header>
+
     <h2>Natalie- VD</h2>
     <p>
         Hej och välkommen till KaffeStunden!
@@ -25,5 +49,35 @@ Tack för att du besöker oss – jag ser fram emot att ta med dig på vår resa
     </p>
         
   
+    <footer>
+    <div>
+      © 2025 Kaffestunden. Alla rättigheter förbehållna.
+    </div>
+  </footer>
+  <main>
+    <section aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt</h2>
+      <p>Hör av dig – jag svarar så snabbt jag kan.</p>
+      <form novalidate>
+        <div>
+          <label for="name">Namn*</label>
+          <input id="name" name="name" type="text" required minlength="2" placeholder="Ditt namn" />
+        </div>
+        <div>
+          <label for="email">E-post*</label>
+          <input id="email" name="email" type="email" required placeholder="namn@example.com" />
+        </div>
+        <div>
+          <label for="phone">Telefon</label>
+          <input id="phone" name="phone" type="tel" pattern="^[0-9 +()-]{6,}$" placeholder="070 123 45 67" />
+        </div>
+        <div>
+          <label for="message">Meddelande*</label>
+          <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Skriv ditt ärende..."></textarea>
+        </div>
+        <button type="submit">Skicka</button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
