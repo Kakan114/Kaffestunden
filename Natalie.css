@@ -1,12 +1,26 @@
 h1 {
     text-align: center;
-    color: red; 
 }
 
 img {
-    width: 200px;
-    height: 50%;
+    width: 350px;
+    height: 350px;
     object-fit: cover;
     margin-left: auto;
     margin-right: auto;
+}
+
+.slideshow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.slideshow-container img {
+  width: 400px;   /* ändra till den storlek du vill */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
