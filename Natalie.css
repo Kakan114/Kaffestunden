@@ -1,5 +1,6 @@
-h1 {
+h1, h2, h3 {
     text-align: center;
+    font-size: 28;
 }
 
 img {
@@ -23,4 +24,23 @@ img {
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Vertikal centering */
+  text-align: center; 
+  gap: 20px;             /* Avstånd mellan text och bild */
+  margin-bottom: 40px;   /* Avstånd under presentationen */
+}
+
+.intro-bild {
+  flex: 1;               /* Tar upp kvarvarande utrymme */
+}
+
+.intro-image img {
+  width: 250px;           /* Anpassa storleken */
+  height: auto;
+  border-radius: 10px;    /* Valfritt, rundade hörn */
 }
