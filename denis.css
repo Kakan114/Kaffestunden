@@ -1,32 +1,197 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: sans-serif ;         /* lämna tomt eller fyll i */
+  color: #2e2a27;               /* lämna tomt eller fyll i */
+  background-color:#f7f2ea ;    /* valfritt */
+}
+
+/* Begränsa sidbredd och centrera innehållet */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ===== Bildspel ===== */
+.slideshow {
+  position: relative;
+  max-width: 800px;      /* <- justera storlek här så det inte blir för stort */
+  margin: 1rem auto;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;  /* responsivt förhållande */
+  overflow: hidden;
+  border-radius: 0.75rem; /* valfritt */
+}
+
+/* Stapla alla slides ovanpå varandra; visa bara den aktiva */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .3s ease;
+  display: grid;
+}
+.slide.is-active { opacity: 1; }
+
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Endast knappar – utan förvalda färger */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border: 1px solid;   /* använder currentColor om 'color' sätts */
+  background: #8b5e34 ;        
+  color: #ffffff;             
+  border-radius: 999px;
+  display: grid; place-items: center;
+  font-size: 1.25rem; line-height: 1;
+  cursor: pointer;
+}
+.prev { left: .5rem; }
+.next { right: .5rem; }
+
+.nav:focus-visible { outline: 2px solid; outline-offset: 2px; }
+
+/* ===== Kortet överst ===== */
 .bild-text{
-    border: solid 1px #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
-    background: #fff;
+  border: solid 1px #d8c4b6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  background: #fff;
 }
 
 .bild-text:hover{
-transform: scale(1.03);
-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
-
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
-
 .bild-text img{
-    border-radius: 15px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
 } 
 
 .bild-text p{
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2e2a27;
+}
+
+/* Mindre skärmar – valfritt */
+@media (max-width: 520px) {
+  .nav { width: 40px; height: 40px; }
+}
+
+#projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-card {
+    border: 1px solid #d8c4b6;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: #efe7df;
+} 
+
+.project-card h3 {
+  margin: 0.75rem 0 0.25rem;
+  padding: 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.project-card p {
+  margin: 0.25rem 0;
+  padding: 0 0.75rem;
+}
+
+.project-card p:last-child {
+  margin-bottom: 0.75rem;
+}
+/* Nav-baren */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #3b2f2f;      /* byt färg om du vill */
+  border-bottom: 1px solid #d8c4b6;
+}
+
+/* Loggan / rubrik */
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: beige;
+}
+
+/* Länkar (desktop) */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+/* Tar bort standardstil på länkar */
+.nav-links a {
+  text-decoration: none;
+  color: beige;
+}
+
+/* Meny-ikon (mobil) */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---- Mobil-vy ---- */
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: block;   /* visa ikonen */
+  }
+
+  .nav-links {
+    display: none;    /* göm länkarna från början */
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: #3b2f2f;
+    border: 1px solid #d8c4b6;
+    padding: 1rem;
+  }
+
+  /* när vi aktiverar menyn via JS */
+  .nav-links.active {
+    display: flex;
+  }
 }

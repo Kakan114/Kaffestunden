@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Sommar Kampanjen",
+        "client": "Kaffestunden",
+        "summary": "Jag skapade en reklam video för att få fler kunder",
+        "image": "kaffe1.jpg"
+    },
+    {
+        "title": "Gott Kaffe",
+        "client":"Kaffestunden",
+        "summary": "Jag utförde tester och skapade Sveriges godaste kaffe",
+        "image":"kaffe2.jpg"
+    },
+    {
+        "title": "Nyhetsbrev",
+        "client": "Kaffestunden",
+        "summary": "Jag skapade ett system för att skicka ut nyhetsbrev månadsvis",
+        "image":"kaffe3.jpg"
+    },
+    {
+        "title": " Kaffe Studien",
+        "client": "Kaffestunden",
+        "summary": "Jag utförde en studie för att se hur många studenter som dricker kaffe vardagligen",
+        "image":"kaffe4.jpg"
+    },
+    {
+        "title": "Loyalitetsprogrammet",
+        "client": "Kaffestunden",
+        "summary": "Jag införde en månads prenumeration",
+        "image":"bryggkaffe.jpeg"
+    }
+]
