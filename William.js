@@ -5,11 +5,9 @@ const nav = document.getElementById('main-nav');
 if (btn && nav) {
   btn.addEventListener('click', () => {
     nav.classList.toggle('show');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
   });
 
-
+ 
 }
 
 // --- Bildspel ---
