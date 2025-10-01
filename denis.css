@@ -1,5 +1,7 @@
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+html, body { 
+  height: 100%; 
+}
 
 body {
   margin: 0;
@@ -36,11 +38,14 @@ main {
   inset: 0;
   opacity: 0;
   transition: opacity .3s ease;
-  display: grid;
 }
 .slide.is-active { opacity: 1; }
 
-.slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide img { 
+width: 100%; 
+height: 100%; 
+object-fit: cover; 
+}
 
 /* Endast knappar – utan förvalda färger */
 .nav {
@@ -59,7 +64,6 @@ main {
 .prev { left: .5rem; }
 .next { right: .5rem; }
 
-.nav:focus-visible { outline: 2px solid; outline-offset: 2px; }
 
 /* ===== Kortet överst ===== */
 .bild-text{
@@ -109,14 +113,12 @@ main {
     border: 1px solid #d8c4b6;
     border-radius: 10px;
     overflow: hidden;
-    flex-direction: column;
 }
 
 .project-card img {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
-    background: #efe7df;
 } 
 
 .project-card h3 {
