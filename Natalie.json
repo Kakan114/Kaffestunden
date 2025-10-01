@@ -19,7 +19,7 @@
   },
   {
     "title": "Bildgalleri",
-    "client": "Kaffestuden",
+    "client": "Kaffestunden",
     "description": "Implementerade ett bildspel där användaren kan bläddra mellan foton.",
     "extra": "JavaScript styr bildväxling och animationer."
   },
