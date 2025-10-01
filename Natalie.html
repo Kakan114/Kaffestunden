@@ -10,56 +10,79 @@
     <link rel="stylesheet" href="hitta-oss.css">
     <link rel="stylesheet" href="omoss.css">
     <script src="Natalie.js" defer></script>
+    <script src="Nataliesbildspel.js" defer></script>
+
     <title>Natalie</title>
     <meta name="description" content="Kontakta Kaffestunden – formulär och kontaktuppgifter." />
 </head>
 
 <body>
-  <header>
-
-    <header class="main-header">
-        <div class="brand">
-            <h1>KaffeStunden</h1>
-        </div>
-        <nav>
-            <ul class="main-nav">
-                <li><a href="index.html#meny">Meny</a></li>
-                <li><a href="index.html#fotoalbum">Fotoalbum</a></li>
-                <li><a href="#index.html#omoss">Om Oss</a></li>
-                <li><a href="index.html#kontakt">Kontakt</a></li>
-                <li><a href="index.html#hitta-oss">Hitta Oss</a></li>
-                
-            </ul>
-        </nav>
-    <h1>Natalie's sida</h1>
-    <div style="text-align:center;">
+  <header class="main-header">
+    <div class="brand">
+        <h1>KaffeStunden</h1>
     </div>
 
+    <nav>
+        <ul class="main-nav">
+            <li><a href="index.html#meny">Meny</a></li>
+            <li><a href="index.html#fotoalbum">Fotoalbum</a></li>
+            <li><a href="index.html#omoss">Om Oss</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="index.html#hitta-oss">Hitta Oss</a></li>
+        </ul>
+    </nav>
+
+    <h1>Natalie's sida</h1>
+    <div style="text-align:center;"></div>
   </header>
 
   <main>
-<div class="intro-bild">
-  <img src="Nat.jpg" alt="Natalies bild">
-</div>
+    <div class="intro-bild">
+      <img src="Nat.jpg" alt="Natalies bild">
+    </div>
 
-      </div>
     <div class="presentation">
       <div class="intro-text">
-    <h2>Natalie- VD</h2>
-<p>
-        Hej och välkommen till KaffeStunden! 
-        Jag heter Natalie Fetiwi och är VD här. Mitt fokus är att kombinera innovation, teknik och kreativitet för att skapa lösningar som gör skillnad. 
-        Med erfarenhet inom IT och affärsutveckling leder jag projekt från idé till verklighet, alltid med kundens behov i centrum. 
-        På KaffeStunden vill vi vara en plats där idéer växer, innovation möter kvalitet och varje dag ger nya möjligheter. 
-        Tack för att du besöker oss – jag ser fram emot att ta med dig på vår resa mot framtidens lösningar.
-    </p>
+        <h2>Natalie- VD</h2>
+        <p>
+          Hej och välkommen till KaffeStunden! 
+          Jag heter Natalie Fetiwi och är VD här. Mitt fokus är att kombinera innovation, teknik och kreativitet för att skapa lösningar som gör skillnad. 
+          Med erfarenhet inom IT och affärsutveckling leder jag projekt från idé till verklighet, alltid med kundens behov i centrum. 
+          På KaffeStunden vill vi vara en plats där idéer växer, innovation möter kvalitet och varje dag ger nya möjligheter. 
+          Tack för att du besöker oss – jag ser fram emot att ta med dig på vår resa mot framtidens lösningar.
+        </p>
       </div>
     </div>
 
+<section class="kompetenser">
+  <h2>Mina kompetenser</h2>
+
+  <div class="kompetens">
+    <p>HTML</p>
+    <div class="bar-container">
+      <div class="bar-fill" style="--width:90%;">90%</div>
+    </div>
+  </div>
+
+  <div class="kompetens">
+    <p>CSS</p>
+    <div class="bar-container">
+      <div class="bar-fill" style="--width:85%;">85%</div>
+    </div>
+  </div>
+
+  <div class="kompetens">
+    <p>JavaScript</p>
+    <div class="bar-container">
+      <div class="bar-fill" style="--width:70%;">70%</div>
+    </div>
+  </div>
+</section>
 
 
-    
-        
+
+
+
     <h1>Mitt Fotoalbum</h1>
 
     <div class="slideshow-container">
@@ -67,36 +90,7 @@
       <img id="slideshow" src="Bönor.jpeg" alt="Fotoalbum">
       <button id="nextBtn">➡</button>
     </div>
-
-    <section aria-labelledby="kontakt-title">
-      <h2 id="kontakt-title">Kontakt</h2>
-      <p>Hör av dig – jag svarar så snabbt jag kan.</p>
-      <form novalidate>
-        <div>
-          <label for="name">Namn*</label>
-          <input id="name" name="name" type="text" required minlength="2" placeholder="Ditt namn" />
-        </div>
-        <div>
-          <label for="email">E-post*</label>
-          <input id="email" name="email" type="email" required placeholder="namn@example.com" />
-        </div>
-        <div>
-          <label for="phone">Telefon</label>
-          <input id="phone" name="phone" type="tel" pattern="^[0-9 +()-]{6,}$" placeholder="070 123 45 67" />
-        </div>
-        <div>
-          <label for="message">Meddelande*</label>
-          <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Skriv ditt ärende..."></textarea>
-        </div>
-        <button type="submit">Skicka</button>
-      </form>
-    </section>
   </main>
-
-  <footer>
-    <div>
-      © 2025 Kaffestunden. Alla rättigheter förbehållna.
-    </div>
-  </footer>
 </body>
 </html>
+ 
