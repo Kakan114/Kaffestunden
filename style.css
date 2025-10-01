@@ -213,7 +213,7 @@ body.nav-open #main-nav {
     box-shadow: none;
   }
   .main-nav {
-    display: flexs;
+    display: flex;
     gap: 20px;
   }
 }
