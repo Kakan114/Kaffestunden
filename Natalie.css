@@ -66,3 +66,46 @@ img {
   font-size: 16px;         /* Minska textstorlek på menylänkar */
   padding: 5px 10px;       /* Minska paddingen runt länkar */
 }
+
+
+.kompetenser {
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: sans-serif;
+}
+
+.kompetens {
+  margin-bottom: 1.5rem;
+}
+
+.kompetens p {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+/* Stapelbehållare */
+.bar-container {
+  background-color: #eee;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 25px;
+}
+
+/* Alla staplar blir rosa och animeras */
+.bar-fill {
+  height: 100%;
+  width: 0;                   /* start på 0 */
+  background-color: #ff69b4;  /* rosa */
+  color: #fff;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 25px;
+  border-radius: 25px;
+  animation: fill 2s forwards;
+}
+
+/* Animation */
+@keyframes fill {
+  from { width: 0; }
+  to { width: var(--width); } /* tar procenten från inline CSS */
+}
