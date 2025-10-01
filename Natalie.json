@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Portfolio-webbplats",
+    "client": "Eget projekt",
+    "description": "Byggde en personlig portfolio för att visa upp mina webbutvecklingskunskaper.",
+    "extra": "Fokus på HTML-struktur och semantik."
+  },
+  {
+    "title": "Responsiv layout",
+    "client": "Örebro Univerisitet",
+    "description": "Skapade en modern och mobilanpassad hemsida.",
+    "extra": "Använde CSS Flexbox och Grid för layout."
+  },
+  {
+    "title": "Interaktiv meny",
+    "client": "Spicy Kitchen",
+    "description": "Utvecklade en dynamisk meny för beställningar online.",
+    "extra": "Byggd med JavaScript för filtrering och sortering."
+  },
+  {
+    "title": "Bildgalleri",
+    "client": "Kaffestuden",
+    "description": "Implementerade ett bildspel där användaren kan bläddra mellan foton.",
+    "extra": "JavaScript styr bildväxling och animationer."
+  },
+  {
+    "title": "Formulärvalidering",
+    "client": "Örebro Universitet",
+    "description": "Skapade ett kontaktformulär med validering för e-post, namn och telefonnummer.",
+    "extra": "Validering sker i realtid med JavaScript."
+  }
+]
