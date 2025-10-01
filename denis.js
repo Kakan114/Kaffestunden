@@ -30,7 +30,7 @@ axios.get('denis.json')
     projects.forEach(p => {
       grid.innerHTML += `
         <article class="project-card">
-          <img src="${p.image}" alt="${p.title}" loading="lazy">
+          <img src="${p.image}" alt="${p.title}">
           <h3>${p.title}</h3>
           <p>Kund: ${p.client}</p>
           <p>${p.summary}</p>
