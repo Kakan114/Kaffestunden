@@ -90,7 +90,25 @@
       <img id="slideshow" src="Bönor.jpeg" alt="Fotoalbum">
       <button id="nextBtn">➡</button>
     </div>
+
+<section id="mina-projekt">
+      <h2>Mina projekt</h2>
+      <div class="controls">
+        <input type="text" id="filterInput" placeholder="Filtrera projekt...">
+        <select id="sortSelect">
+          <option value="title-asc">Titel A-Ö</option>
+          <option value="title-desc">Titel Ö-A</option>
+          <option value="client-asc">Kund A-Ö</option>
+          <option value="client-desc">Kund Ö-A</option>
+        </select>
+      </div>
+      <div id="projectsContainer"></div>
+    </section>
+
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
  
