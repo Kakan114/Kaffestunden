@@ -3,13 +3,39 @@ header {
     font-size: 28;
 }
 
+h1{
+  font-size: 3rem;
+  margin:2rem 0;
+}
+
+h2{
+  font-size: 2rem;
+  margin:2rem 0;
+}
+
+p{
+  font-size: 1.2rem;
+  margin:1rem 0;
+  text-align: justify;
+}
+
+li{
+  display:inline-block;
+
+}
+
+img:hover{
+  transform:scale(1.05);
+}
 
 img {
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    margin-left: auto;
-    margin-right: auto;
+  display:block;
+max-width:100%;
+height: auto;
+margin:1rem auto;
+border-radius: 2%;
+box-shadow: 0 4x 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.5s;
 }
 
 .slideshow-container {
