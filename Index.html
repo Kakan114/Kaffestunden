@@ -11,12 +11,7 @@
     <link rel="stylesheet" href="omoss.css">
     <script src="contact.js" defer></script>
     <script src="album.js" defer></script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-
+    <script src="hamburgerIcon.js" defer></script>
 </head>
 
 <body>
@@ -24,7 +19,12 @@
         <div class="brand">
             <h1>KaffeStunden</h1>
         </div>
-        <nav>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
+  <span class="nav-toggle-bar" aria-hidden="true"></span>
+  <span class="nav-toggle-bar" aria-hidden="true"></span>
+  <span class="nav-toggle-bar" aria-hidden="true"></span>
+</button>
+        <nav id="main-nav">
             <ul class="main-nav">
                 <li><a href="#meny">Meny</a></li>
                 <li><a href="#fotoalbum">Fotoalbum</a></li>
@@ -36,7 +36,7 @@
         </nav>
     </header>
 
-    <main>
+  <main>
         <div class="intro-container">
             <section class="intro">
                 <h2>Bryggt för att överleva tentan</h2>
@@ -58,24 +58,25 @@
                 <div class="meny-grid">
                     <div class="kaffe-ruta">
                         <h3>Bryggkaffe</h3>
-                        <p>25 kr</p>
+                        <p>10 kr</p>
                     </div>
                     <div class="kaffe-ruta">
                         <h3>Cappuccino</h3>
-                        <p>35 kr</p>
+                        <p>20 kr</p>
                     </div>
                     <div class="kaffe-ruta">
                         <h3>Latte</h3>
-                        <p>38 kr</p>
+                        <p>29 kr</p>
                     </div>
                     <div class="kaffe-ruta">
                         <h3>Espresso</h3>
-                        <p>20 kr</p>
+                        <p>15 kr</p>
                     </div>
                 </div>
             </section>
 
-            <section id="fotoalbum" class="album" aria-labelledby="album-title">
+            
+<section id="fotoalbum" class="album" aria-labelledby="album-title">
   <h2 id="album-title">Fotoalbum</h2>
 
   <div class="album-grid">
@@ -108,10 +109,9 @@
       <figcaption>Bryggkaffe på skrivbord</figcaption>
     </figure>
 
-    <!-- Lägg till fler <figure> efter behov -->
   </div>
-</section>
-    </main>
+  </section>
+  </main>
 
  
 
