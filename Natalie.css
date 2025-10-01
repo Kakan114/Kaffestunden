@@ -1,4 +1,4 @@
-h1, h2, h3 {
+header {
     text-align: center;
     font-size: 28;
 }
@@ -108,4 +108,26 @@ img {
 @keyframes fill {
   from { width: 0; }
   to { width: var(--width); } /* tar procenten från inline CSS */
+}
+
+.project-title {
+  font-weight: bold;
+}
+
+#projectsContainer {
+  display: flex;
+  flex-wrap: wrap;       /* gör så att korten bryts till nästa rad vid behov */
+  justify-content: center; /* centrera horisontellt */
+  gap: 20px;             /* mellanrum mellan korten, både horisontellt och vertikalt */
+  padding: 20px;
+}
+
+
+.project-card {
+  padding: 15px;       /* mellanrum inuti kortet */
+  border-radius: 10px;
+  background: rgb(254, 220, 225);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1 1 250px;     /* min-bredd, växer efter behov */
+  max-width: 300px;
 }
