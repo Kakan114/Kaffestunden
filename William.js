@@ -15,22 +15,9 @@ let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(n) {
-  // Dölj alla bilder
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  // Räkna ut vilken bild som ska visas
-  if (n < 0) {
-    slideIndex = slides.length - 1; // om vi går bakåt från första bilden
-  } else if (n >= slides.length) {
-    slideIndex = 0; // om vi går förbi sista bilden
-  } else {
-    slideIndex = n;
-  }
-
-  // Visa den valda bilden
-  slides[slideIndex].style.display = "block";
+  slides.forEach(slide => slide.classList.remove('active'));
+  slideIndex = (n + slides.length) % slides.length;
+  slides[slideIndex].classList.add('active');
 }
 
 // Visa första bilden när sidan laddas
