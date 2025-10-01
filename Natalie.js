@@ -56,16 +56,16 @@ document.getElementById("filterInput").addEventListener("input", e => {
 
 // Sortering
 document.getElementById("sortSelect").addEventListener("change", applySort);
-
 function applySort() {
   const sortValue = document.getElementById("sortSelect").value;
 
   filteredProjects.sort((a, b) => {
-    if (sortValue === "title-asc") return a.title.localeCompare(b.title);
-    if (sortValue === "title-desc") return b.title.localeCompare(a.title);
-    if (sortValue === "client-asc") return a.client.localeCompare(b.client);
-    if (sortValue === "client-desc") return b.client.localeCompare(a.client);
+    if (sortValue === "title-asc") return a.title.localeCompare(b.title, 'sv', { sensitivity: 'base' });
+    if (sortValue === "title-desc") return b.title.localeCompare(a.title, 'sv', { sensitivity: 'base' });
+    if (sortValue === "client-asc") return a.client.localeCompare(b.client, 'sv', { sensitivity: 'base' });
+    if (sortValue === "client-desc") return b.client.localeCompare(a.client, 'sv', { sensitivity: 'base' });
   });
 
   renderProjects(filteredProjects);
 }
+
