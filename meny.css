@@ -18,35 +18,26 @@
 }
 
 .kaffe-ruta {
-  background: #fff;
+  background: #c19a8ba5;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgb(66, 49, 49);
   padding: 15px 10px;
   width: 100%; /* fyll kolumnen */
   box-sizing: border-box; /* inkludera padding i bredden */
   transition: all 0.25s ease;
-  cursor: pointer; /* gör så det känns klickbart */
+  font-size: 1.2rem;
+  color: #333;
 }
 
-/* Hover-effekt */
 .kaffe-ruta:hover {
   transform: translateY(-5px) scale(1.03);
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-/* Titel och pris stil */
-.kaffe-ruta h3 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-  color: #333;
-}
+
 
 .kaffe-ruta p {
   font-size: 1rem;
   color: #666;
 }
 
-#meny {
-    scroll-margin-top: 90px; /* justera efter headerns höjd */
-    padding-top: 20px;       /* lite luft över rutorna */
-}
