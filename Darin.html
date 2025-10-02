@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kaffestunden – Darin</title>
   
 <link rel="stylesheet" href="Darin.css">
@@ -17,8 +17,7 @@
 
 <header class="main-header">
   <div class="brand">
-    <a href="Index.html" class="logo"><img src="image.png" alt="Kaffestunden"></a>
-    <a href="Index.html" class="site-title">KaffeStunden</a>
+    <a href="Index.html" class="site-title"><h2>KaffeStunden</a></h2>
   </div>
 
   <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">
@@ -50,15 +49,15 @@
   <section id="about" class="about">
     <div class="about-inner">
       <figure class="about-media reveal">
-        <img src="DK.jpeg" alt="Porträtt av Darin" loading="lazy" />
+        <img src="DK.jpeg" alt="Porträtt av Darin" loading="lazy">
       </figure>
 
       <div class="about-content reveal">
         <h2>Om mig</h2>
         <p>Jag fokuserar på prestanda, tillgänglighet och tydlig struktur i webblösningar.</p>
         <ul class="about-facts">
-          <li>HTML • CSS • JS</li>
-          <li>Prestanda & a11y</li>
+          <li>Marathon en gång om året</li>
+          <li>Prestanda i varje steg</li>
           <li>Espresso ☕</li>
         </ul>
       </div>
@@ -71,10 +70,10 @@
       <h2>Galleri</h2>
 
       <div class="slideshow-viewport">
-        <figure class="slide is-active"><img src="Kaffe1.jpg" alt="Pour-over" loading="lazy" /></figure>
-        <figure class="slide"><img src="kaffe2.jpg" alt="Espresso" loading="lazy" /></figure>
-        <figure class="slide"><img src="kaffe3.jpg" alt="Latte art" loading="lazy" /></figure>
-        <figure class="slide"><img src="kaffe4.jpg" alt="Fokusläge" loading="lazy" /></figure>
+        <figure class="slide is-active"><img src="Kaffe1.jpg" alt="Pour-over" loading="lazy"></figure>
+        <figure class="slide"><img src="kaffe2.jpg" alt="Espresso" loading="lazy"></figure>
+        <figure class="slide"><img src="kaffe3.jpg" alt="Latte art" loading="lazy"></figure>
+        <figure class="slide"><img src="kaffe4.jpg" alt="Fokusläge" loading="lazy"></figure>
       </div>
 
       <div class="slideshow-controls">
@@ -82,43 +81,47 @@
         <button class="next" type="button" aria-label="Nästa">›</button>
       </div>
 
-      <div class="slideshow-dots">
-        <button class="dot is-active">1</button>
-        <button class="dot">2</button>
-        <button class="dot">3</button>
-        <button class="dot">4</button>
-      </div>
     </div>
   </section>
 
   <!-- Kompetenser (matchar din JS: .skill[data-level] + .skill-fill) -->
   <section id="skills" class="skills reveal">
-    <div class="skills-inner">
-      <h2>Kompetenser</h2>
-      <ul class="skill-list" role="list">
-        <li class="skill" data-level="85" data-skill="HTML">
-          <div class="skill-label"><span class="skill-name">HTML</span><span class="skill-value" aria-hidden="true">85%</span></div>
-          <div class="skill-bar" role="img"><div class="skill-fill"></div></div>
-        </li>
-        <li class="skill" data-level="80" data-skill="CSS">
-          <div class="skill-label"><span class="skill-name">CSS</span><span class="skill-value" aria-hidden="true">80%</span></div>
-          <div class="skill-bar" role="img"><div class="skill-fill"></div></div>
-        </li>
-        <li class="skill" data-level="70" data-skill="JavaScript">
-          <div class="skill-label"><span class="skill-name">JavaScript</span><span class="skill-value" aria-hidden="true">70%</span></div>
-          <div class="skill-bar" role="img"><div class="skill-fill"></div></div>
-        </li>
-        <li class="skill" data-level="65" data-skill="Git">
-          <div class="skill-label"><span class="skill-name">Git</span><span class="skill-value" aria-hidden="true">65%</span></div>
-          <div class="skill-bar" role="img"><div class="skill-fill"></div></div>
-        </li>
-        <li class="skill" data-level="60" data-skill="Tillgänglighet">
-          <div class="skill-label"><span class="skill-name">Tillgänglighet</span><span class="skill-value" aria-hidden="true">60%</span></div>
-          <div class="skill-bar" role="img"><div class="skill-fill"></div></div>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <div class="skills-inner">
+    <h2>Kompetenser</h2>
+
+    <ul class="skill-list">
+      <li class="skill" data-level="85">
+        <div class="skill-label">
+          <span class="skill-name">HTML</span>
+          <span class="skill-value" aria-hidden="true">85%</span>
+        </div>
+        <div class="skill-bar" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+
+      <li class="skill" data-level="80">
+        <div class="skill-label">
+          <span class="skill-name">CSS</span>
+          <span class="skill-value" aria-hidden="true">80%</span>
+        </div>
+        <div class="skill-bar" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+
+      <li class="skill" data-level="70">
+        <div class="skill-label">
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-value" aria-hidden="true">70%</span>
+        </div>
+        <div class="skill-bar" role="img">
+          <div class="skill-fill"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
   <!-- Projekt (IDs som din JS förväntar sig) -->
   <section id="projects" class="projects">
@@ -126,7 +129,7 @@
       <h2 class="reveal">Projekt</h2>
 
       <div class="projects-controls">
-        <label>Filtrera: <input type="text" id="filterInput" placeholder="Skriv för att filtrera..." /></label>
+        <label>Filtrera: <input type="text" id="filterInput" placeholder="Skriv för att filtrera..."></label>
         <label>Sortera:
           <select id="sortSelect">
             <option value="year-desc">År (nyast först)</option>
