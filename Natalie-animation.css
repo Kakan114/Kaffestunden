@@ -1,7 +1,7 @@
 .scroll-element {
   opacity: 0;
-  transform: translateY(50px); /* Flyttar elementet lite ner */
-  filter: blur(2px);          /* Lägg till blur för “filter-effekt” */
+  transform: translateY(50px); 
+  filter: blur(2px);         
   transition: all 0.8s ease-out;
 }
 
