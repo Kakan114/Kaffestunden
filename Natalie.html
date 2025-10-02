@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="hitta-oss.css">
     <link rel="stylesheet" href="om-oss.css">
+    <link rel="stylesheet" href="Natalie-animation.css">
+
 
          <link rel="stylesheet" href="Natalie-header.css">
      <link rel="stylesheet" href="Natalie-bilder.css">
      <link rel="stylesheet" href="Natalie-kompetenser.css">
           <link rel="stylesheet" href="Natalie-projekt.css">
     <script src="Natalie.js" defer></script>
-    <script src="Nataliesbildspel.js" defer></script>
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+   
 
     <title>Natalie</title>
 </head>
@@ -58,7 +58,7 @@
       </div>
 
 
-<section class="kompetenser">
+<section class="kompetenser scroll-element">
   <h2>Mina kompetenser</h2>
 
   <div class="kompetens">
@@ -84,8 +84,10 @@
 </section>
 
 
-<h1 id="fotoalbum-title">Mitt Fotoalbum</h1>
 
+
+ <section class="scroll-element"id="fotoalbum-title">
+<h1 >Mitt Fotoalbum</h1>
     <div class="slideshow-container">
       <button id="prevBtn">⬅</button>
       <img id="slideshow" src="Bönor.jpeg" alt="Fotoalbum">
@@ -93,7 +95,7 @@
     </div>
 
 
-<section id="mina-projekt">
+<section id="mina-projekt" class="scroll-element">
       <h2>Mina projekt</h2>
       <div class="controls">
         <input type="text" id="filterInput" placeholder="Filtrera projekt...">
@@ -109,6 +111,10 @@
 
   </main>
 
+ <script src="Nataliesbildspel.js" defer></script>
+  <script src="Natalie-animation.js" defer></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </body>
 </html>
