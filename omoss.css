@@ -1,8 +1,8 @@
 .about-card img {
     width: 200px;
     height: 200px;
-    object-fit: cover;   /* beskär snyggt */
-    border-radius: 50%;  /* gör bilden rund */
+    object-fit: cover;   
+    border-radius: 50%;  
     display: block;
     margin: 0 auto;
 }
