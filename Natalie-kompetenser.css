@@ -4,9 +4,7 @@
   margin: 2rem auto;
 }
 
-.kompetens {
-  margin-bottom: 1.5rem;
-}
+
 
 .kompetens p {
   margin-bottom: 0.3rem;
@@ -14,7 +12,7 @@
 }
 
 .bar-container {
-  background-color: #eee;
+  background-color: #efc9e0;
   border-radius: 25px;
   overflow: hidden;
   height: 25px;

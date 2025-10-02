@@ -1,8 +1,8 @@
-// Körs när sidan laddas
+// Kompetensfyllning
 window.addEventListener("load", () => {
   document.querySelectorAll(".bar-fill").forEach(bar => {
     const procent = bar.getAttribute("data-kompetens");
-    bar.style.width = procent; // triggar CSS transition
+    bar.style.width = procent; 
   });
 });
 
