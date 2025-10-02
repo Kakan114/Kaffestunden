@@ -21,12 +21,12 @@ h2 {
 
 @media (max-width: 768px) {
   p {
-    font-size: 16px; /* mindre text på mobil */
+    font-size: 16px; 
   }
 }
 
 @media (min-width: 1280px) {
   p {
-    font-size: 20px; /* större text på stor skärm */
+    font-size: 20px; 
   }
 }
