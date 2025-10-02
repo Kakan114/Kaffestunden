@@ -1,0 +1,38 @@
+
+.kompetenser {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.kompetens {
+  margin-bottom: 1.5rem;
+}
+
+.kompetens p {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.bar-container {
+  background-color: #eee;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 25px;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0;
+  background-color: #ff69b4;
+  color: #fff;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 25px;
+  border-radius: 25px;
+  animation: fill 2s forwards;
+}
+
+@keyframes fill {
+  from { width: 0; }
+  to { width: var(--width); }
+}
