@@ -1,63 +1,64 @@
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
-  if (!form) return;
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
 
-  const statusEl = document.getElementById('form-status');
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const messageError = document.getElementById('message-error');
 
-  const nameEl = document.getElementById('name');
-  const emailEl = document.getElementById('email');
-  const phoneEl = document.getElementById('phone');
-  const msgEl = document.getElementById('message');
+  const statusMessage = document.getElementById('form-status');
 
-  const nameErr = document.getElementById('name-error');
-  const emailErr = document.getElementById('email-error');
-  const phoneErr = document.getElementById('phone-error');
-  const msgErr = document.getElementById('message-error');
-
-  function validateName() {
-    const ok = nameEl.value.trim().length >= 2;
-    nameErr.hidden = ok;
-    return ok;
+  // Valideringsfunktioner
+  function checkName() {
+    if (nameInput.value.trim().length >= 2) {
+      nameError.hidden = true;
+      return true;
+    } else {
+      nameError.hidden = false;
+      return false;
+    }
   }
 
-  function validateEmail() {
-    const ok = emailEl.value.includes('@');
-    emailErr.hidden = ok;
-    return ok;
+  function checkEmail() {
+    if (emailInput.value.includes('@')) {
+      emailError.hidden = true;
+      return true;
+    } else {
+      emailError.hidden = false;
+      return false;
+    }
   }
 
-  function validatePhone() {
-    const v = phoneEl.value.trim();
-    const ok = v === '' || /^[0-9 +()-]{6,}$/.test(v);
-    phoneErr.hidden = ok;
-    return ok;
-  }
-
-  function validateMsg() {
-    const ok = msgEl.value.trim().length >= 10;
-    msgErr.hidden = ok;
-    return ok;
+  function checkMessage() {
+    if (messageInput.value.trim().length >= 10) {
+      messageError.hidden = true;
+      return true;
+    } else {
+      messageError.hidden = false;
+      return false;
+    }
   }
 
   // Realtidsvalidering
-  nameEl.addEventListener('input', validateName);
-  emailEl.addEventListener('input', validateEmail);
-  phoneEl.addEventListener('input', validatePhone);
-  msgEl.addEventListener('input', validateMsg);
+  nameInput.addEventListener('input', checkName);
+  emailInput.addEventListener('input', checkEmail);
+  messageInput.addEventListener('input', checkMessage);
 
+  // När formuläret skickas
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const ok = validateName() & validateEmail() & validatePhone() & validateMsg();
-    if (!ok) return;
+   
 
-    form.reset();
-    nameErr.hidden = emailErr.hidden = phoneErr.hidden = msgErr.hidden = true;
+    const isNameOk = checkName();
+    const isEmailOk = checkEmail();
+    const isMessageOk = checkMessage();
 
-    if (statusEl) {
-      statusEl.textContent = 'Tack, skickat!';
-      statusEl.hidden = false;
-      setTimeout(() => { statusEl.hidden = true; }, 3000);
+    if (isNameOk && isEmailOk && isMessageOk) {
+      form.reset(); // töm formuläret
+      statusMessage.textContent = 'Tack, skickat!';
+      statusMessage.hidden = false;
+      setTimeout(() => statusMessage.hidden = true, 3000);
     }
   });
-})();
-
+});

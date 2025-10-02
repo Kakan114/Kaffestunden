@@ -141,68 +141,32 @@
         </div>
       </section>
 
-      <!-- KONTAKT: minimalt men tydligt formulär -->
-      <section id="kontakt" class="contact">
-        <h2>Kontakt</h2>
+<section id="kontakt" class="contact">
+  <h2>Kontakt</h2>
 
-        <form id="contact-form" novalidate>
-          <div class="field">
-            <label for="name">Namn*</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              placeholder="Ditt namn"
-            />
-            <small class="error" id="name-error" hidden
-              >Minst 2 tecken krävs.</small
-            >
-          </div>
+  <form id="contact-form" novalidate>
+    <div class="field">
+      <label for="name">Namn*</label>
+      <input id="name" name="name" type="text" placeholder="Ditt namn" required />
+      <small class="error" id="name-error" hidden>Minst 2 tecken krävs.</small>
+    </div>
 
-          <div class="field">
-            <label for="email">E-post*</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder="namn@exempel.se"
-            />
-            <small class="error" id="email-error" hidden>invalid email</small>
-          </div>
+    <div class="field">
+      <label for="email">E-post*</label>
+      <input id="email" name="email" type="email" placeholder="namn@exempel.se" required />
+      <small class="error" id="email-error" hidden>Ogiltig e-post.</small>
+    </div>
 
-          <div class="field">
-            <label for="phone">Telefon</label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="070 123 45 67"
-            />
-            <small class="error" id="phone-error" hidden
-              >Ogiltigt telefonnummer.</small
-            >
-          </div>
+    <div class="field">
+      <label for="message">Meddelande*</label>
+      <textarea id="message" name="message" rows="4" placeholder="Skriv ditt meddelande här..." required></textarea>
+      <small class="error" id="message-error" hidden>Minst 10 tecken krävs.</small>
+    </div>
 
-          <div class="field">
-            <label for="message">Meddelande*</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-              placeholder="Skriv ditt meddelande här..."
-            ></textarea>
-            <small class="error" id="message-error" hidden
-              >Minst 10 tecken krävs.</small
-            >
-          </div>
-
-          <button type="submit" class="btn">Skicka</button>
-          <p id="form-status" class="form-status" aria-live="polite" hidden></p>
-        </form>
-      </section>
+    <button type="submit" class="btn">Skicka</button>
+    <p id="form-status" class="form-status" aria-live="polite" hidden></p>
+  </form>
+</section>
 
       <!-- HITTA OSS: enkel inbäddad karta -->
       <section id="hitta-oss" class="find-us">
