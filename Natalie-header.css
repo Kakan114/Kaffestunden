@@ -1,20 +1,20 @@
-
 .main-header {
+  position: relative; /* referens för absoluta element inuti */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: relative;
 }
 
 .main-header .brand h1 {
   font-size: 24px;
   margin: 0;
+    justify-content: center-between;
+
 }
 
-/* Här börjar ren meny utan knapp */
 #main-nav {
   list-style: none;
   display: flex;
@@ -35,3 +35,83 @@
   transform: scale(1.05);
 }
 
+#menu-toggle {
+  display: none; /* checkboxen syns inte */
+}
+
+#menu-icon {
+  display: none; /* hamburger-ikonen syns bara på mobil */
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobilmeny (<768px) */
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  #main-nav {
+    display: none;                /* göm menyn som standard */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;                     /* under headern */
+    left: 0;                        /* börja från vänster */
+    right: 0;                       /* fyll hela bredden */
+    margin: 0 auto;
+    width: 100%;                    /* täcker hela headerns bredd */
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+
+  /* När checkboxen är kryssad visas menyn */
+  #menu-toggle:checked ~ #main-nav {
+    display: flex;
+  }
+
+  #main-nav li {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+/* Mellanstora skärmar (769px–1279px) */
+@media (min-width: 769px) and (max-width: 1279px) {
+  #main-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;   /* Bryter menyn på flera rader om det inte får plats */
+    gap: 10px;         /* mindre gap för mellanskärm */
+    position: static;
+    width: auto;
+    padding: 0;
+    background: none;
+  }
+
+  #main-nav li {
+    margin: 0;
+  }
+}
+
+/* Stora skärmar (>1280px) */
+@media (min-width: 1280px) {
+  #menu-icon {
+    display: none;
+  }
+
+  #main-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    position: static;
+    width: auto;
+    padding: 0;
+    background: none;
+  }
+
+  #main-nav li {
+    margin: 0;
+  }
+}
