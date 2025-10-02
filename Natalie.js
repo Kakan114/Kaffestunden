@@ -1,4 +1,3 @@
-// Kompetensfyllning
 window.addEventListener("load", () => {
   document.querySelectorAll(".bar-fill").forEach(bar => {
     const procent = bar.getAttribute("data-kompetens");
@@ -10,7 +9,6 @@ window.addEventListener("load", () => {
 let projects = [];
 let filteredProjects = [];
 
-// Hämta projekt från JSON med Axios
 axios.get("Natalie.json")
   .then(response => {
     projects = response.data;
@@ -19,7 +17,6 @@ axios.get("Natalie.json")
   })
   .catch(error => console.error("Fel vid inläsning:", error));
 
-// Rendera projekt på sidan
 function renderProjects(list) {
   const container = document.getElementById("projectsContainer");
   container.innerHTML = "";
@@ -42,7 +39,6 @@ function renderProjects(list) {
   });
 }
 
-// Filtrering
 document.getElementById("filterInput").addEventListener("input", e => {
   const search = e.target.value.toLowerCase();
   filteredProjects = projects.filter(p =>
@@ -53,7 +49,6 @@ document.getElementById("filterInput").addEventListener("input", e => {
   applySort();
 });
 
-// Sortering
 document.getElementById("sortSelect").addEventListener("change", applySort);
 function applySort() {
   const sortValue = document.getElementById("sortSelect").value;
