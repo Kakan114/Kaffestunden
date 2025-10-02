@@ -1,284 +1,188 @@
-
-// Mobilmeny: öppna/stäng, uppdatera aria
+// ===== Små hjälpare =====
 (function () {
-  const btn = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('main-nav');
-  if (!btn || !nav) return;
+  const $  = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  btn.addEventListener('click', () => {
-    const isOpen = document.body.classList.toggle('nav-open');
-    btn.setAttribute('aria-expanded', String(isOpen));
-    btn.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
-  });
+  // =========================
+  // 1) Mobilmeny
+  // =========================
+  (function mobileNav() {
+    const btn = $('.nav-toggle');
+    const nav = $('#main-nav');
+    if (!btn || !nav) return;
 
-  // Stäng menyn när man klickar en länk (mobil)
-  nav.addEventListener('click', (e) => {
-    const link = e.target.closest('a');
-    if (!link) return;
-    document.body.classList.remove('nav-open');
-    btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-label', 'Öppna meny');
-  });
+    btn.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Stäng meny' : 'Öppna meny');
+    });
 
-  // Säkerställ att mobilmenyn stängs när man går upp i desktopbredd
-  const mq = window.matchMedia('(min-width: 768px)');
-  mq.addEventListener('change', (ev) => {
-    if (ev.matches) {
+    // Stäng när man klickar en länk i menyn (mobil)
+    nav.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) return;
       document.body.classList.remove('nav-open');
       btn.setAttribute('aria-expanded', 'false');
       btn.setAttribute('aria-label', 'Öppna meny');
-    }
-  });
-})();
+    });
 
-// ===== Bildspel (manuell stege) =====
-(function () {
-  const slides = Array.from(document.querySelectorAll('.slideshow .slide'));
-  const prevBtn = document.querySelector('.slideshow .prev');
-  const nextBtn = document.querySelector('.slideshow .next');
-  const dots = Array.from(document.querySelectorAll('.slideshow .dot'));
-  if (!slides.length || !prevBtn || !nextBtn) return;
+    // Stäng när vi går upp i desktop-bredd
+    matchMedia('(min-width: 768px)').addEventListener('change', (ev) => {
+      if (!ev.matches) return;
+      document.body.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Öppna meny');
+    });
+  })();
 
-  let index = 0;
+  // =========================
+  // 2) Reveal + Skills
+  // =========================
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function show(i) {
-    // wrap runt
-    index = (i + slides.length) % slides.length;
+  // En observer som sätter .is-visible när element kommer in i bild
+  const revealObserver = reduceMotion
+    ? { observe(el){ el.classList.add('is-visible'); } }
+    : new IntersectionObserver((entries, io) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
 
-    // uppdatera slides
-    slides.forEach((el, n) => el.classList.toggle('is-active', n === index));
+  // Applicera reveal på statiska .reveal
+  $$('.reveal').forEach(el => revealObserver.observe(el));
 
-    // uppdatera dots (om de finns)
-    if (dots.length) {
-      dots.forEach((d, n) => {
-        const active = n === index;
-        d.classList.toggle('is-active', active);
-        d.setAttribute('aria-selected', String(active));
-        d.setAttribute('tabindex', active ? '0' : '-1');
+  // Skills: fyll staplar när #skills blir synlig
+  (function skillsFill() {
+    const section = $('#skills');
+    if (!section) return;
+
+    const fillBars = () => {
+      $$('.skill', section).forEach(item => {
+        const level = Math.max(0, Math.min(Number(item.dataset.level || 0), 100));
+        const fill = $('.skill-fill', item);
+        if (fill) fill.style.width = level + '%';
       });
+    };
+
+    if (reduceMotion) {
+      fillBars(); // kör direkt om användaren vill minska rörelser
+      return;
     }
-  }
 
-  function next() { show(index + 1); }
-  function prev() { show(index - 1); }
-
-  // knappar
-  nextBtn.addEventListener('click', next);
-  prevBtn.addEventListener('click', prev);
-
-  // dots (valfritt)
-  if (dots.length) {
-    dots.forEach((d, n) => d.addEventListener('click', () => show(n)));
-  }
-
-  // tangentbordsstöd (vänster/höger piltangent)
-  document.querySelector('.slideshow').addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
-  });
-
-  // init
-  show(0);
-})();
-
-
-// ===== Projekt: hämtning + render + filter/sort (i ett sammanhållet scope) =====
-(function () {
-  const grid = document.getElementById('projects-grid');
-  const filterInput = document.getElementById('filterInput');
-  const sortSelect = document.getElementById('sortSelect');
-  if (!grid) return;
-
-  let allProjects = [];
-
-  // Hämta data (matcha EXAKT filnamnet på din JSON)
-  axios.get('Darin-projects.json')
-    .then(res => {
-      allProjects = Array.isArray(res.data) ? res.data : [];
-      renderProjects(allProjects);
-    })
-    .catch(err => {
-      console.error('Kunde inte läsa in projekt:', err);
-      grid.innerHTML = '<p>Kunde inte läsa in projekt just nu.</p>';
-    });
-
-  function renderProject(p) {
-    const card = document.createElement('article');
-    card.className = 'project-card reveal';
-    card.setAttribute('role', 'listitem');
-
-    const media = document.createElement('div');
-    media.className = 'project-media';
-    const img = document.createElement('img');
-    img.src = p.image || 'placeholder.jpg';
-    img.alt = p.title ? `Projektbild: ${p.title}` : 'Projektbild';
-    img.loading = 'lazy';
-    media.appendChild(img);
-
-    const body = document.createElement('div');
-    body.className = 'project-body';
-
-    const h3 = document.createElement('h3');
-    h3.className = 'project-title';
-    h3.textContent = p.title || 'Projekt';
-
-    const meta = document.createElement('div');
-    meta.className = 'project-meta';
-    const client = p.client ?? '—';
-    const year = p.year ?? '—';
-    meta.textContent = `${client} • ${year}`;
-
-    const summary = document.createElement('p');
-    summary.className = 'project-summary';
-    summary.textContent = p.summary || '';
-
-    body.appendChild(h3);
-    body.appendChild(meta);
-    body.appendChild(summary);
-
-    const tags = document.createElement('div');
-    tags.className = 'project-tags';
-    (p.tags || []).forEach(t => {
-      const span = document.createElement('span');
-      span.className = 'tag';
-      span.textContent = t;
-      tags.appendChild(span);
-    });
-
-    card.appendChild(media);
-    card.appendChild(body);
-    card.appendChild(tags);
-    return card;
-  }
-
-  // ===== Skillbars: animera när sektionen blir synlig =====
-(function () {
-  const skillsSection = document.getElementById('skills');
-  if (!skillsSection) return;
-
-  const items = Array.from(skillsSection.querySelectorAll('.skill'));
-
-  function animate() {
-    // valfritt: klass om du vill styla något globalt
-    document.body.classList.add('skills-animate');
-
-    // sätt bredden på varje stapel
-    items.forEach(item => {
-      const level = Number(item.dataset.level || 0); // ex: 85 (inte "85%")
-      const fill = item.querySelector('.skill-fill');
-      if (fill) fill.style.width = Math.max(0, Math.min(level, 100)) + '%';
-      // alternativ (CSS-variabel): fill.style.setProperty('--level', level + '%');
-    });
-  }
-
-  // Trigga när sektionen syns
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
+    const io = new IntersectionObserver((entries, io2) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animate();
-          io.disconnect(); // kör en gång
-        }
+        if (!entry.isIntersecting) return;
+        fillBars();
+        io2.unobserve(entry.target);
       });
-    }, { threshold: 0, rootMargin: '0px 0px -20% 0px' });
-    io.observe(skillsSection);
-
-    // Om sektionen redan är i bild vid load — kör ändå
-    const r = skillsSection.getBoundingClientRect();
-    if (r.top < innerHeight && r.bottom > 0) animate();
-  } else {
-    // Fallback för äldre browsers
-    window.addEventListener('load', () => setTimeout(animate, 300));
-  }
-})();
-
-  function renderProjects(list) {
-  grid.innerHTML = '';
-  const frag = document.createDocumentFragment();
-
-  list.forEach((item, idx) => {
-    const card = renderProject(item);
-    // valfritt: liten “stagger” så korten kommer in mjukt i ordning
-    card.style.transitionDelay = (idx % 6) * 40 + 'ms';
-    frag.appendChild(card);
-  });
-
-  grid.appendChild(frag);
-
-  // NYTT: observera nyinsatta kort
-  setupRevealForNewCards();
-}
-function setupRevealForNewCards() {
-  const cards = grid.querySelectorAll('.project-card.reveal');
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (reduce) {
-    cards.forEach(c => c.classList.add('is-visible'));
-    return;
-  }
-
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  cards.forEach(c => io.observe(c));
-}
-
-  function applyFilterSort() {
-    if (!allProjects.length) return;
-
-    const term = (filterInput?.value || '').toLowerCase();
-    const sort = (sortSelect?.value || 'year-desc');
-
-    // Filtrera
-    let filtered = allProjects.filter(p => {
-      const haystack = [p.title, p.client, ...(p.tags || [])].join(' ').toLowerCase();
-      return haystack.includes(term);
     });
 
-    // Sortera
-    filtered.sort((a, b) => {
-      switch (sort) {
-        case 'year-asc':  return (a.year ?? 0) - (b.year ?? 0);
-        case 'year-desc': return (b.year ?? 0) - (a.year ?? 0);
-        case 'title-asc': return (a.title || '').localeCompare(b.title || '');
-        case 'title-desc': return (b.title || '').localeCompare(a.title || '');
-        default: return 0;
-      }
+    // Se till att sektionen observeras (lägg gärna .reveal i HTML för fade-in)
+    io.observe(section);
+  })();
+
+  // =========================
+  // 3) Bildspel
+  // =========================
+  (function slideshow() {
+    const root   = $('.slideshow');
+    if (!root) return;
+
+    const slides = $$('.slide', root);
+    const dots   = $$('.dot', root);
+    const prev   = $('.prev', root);
+    const next   = $('.next', root);
+    if (!slides.length || !prev || !next) return;
+
+    let i = 0;
+    const wrap = n => (n + slides.length) % slides.length;
+
+    function show(idx) {
+      i = wrap(idx);
+      slides.forEach((el, n) => el.classList.toggle('is-active', n === i));
+      dots.forEach((d, n) => d.classList.toggle('is-active', n === i));
+    }
+
+    next.addEventListener('click', () => show(i + 1));
+    prev.addEventListener('click', () => show(i - 1));
+    dots.forEach((d, n) => d.addEventListener('click', () => show(n)));
+
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); show(i - 1); }
     });
 
-    renderProjects(filtered);
-  }
+    show(0);
+  })();
 
-  // Koppla events när kontroller finns i DOM
-  if (filterInput) filterInput.addEventListener('input', applyFilterSort);
-  if (sortSelect)  sortSelect.addEventListener('change', applyFilterSort);
-})();
+  // =========================
+  // 4) Projekt: hämta + render + filter/sort + reveal
+  // =========================
+  (function projects() {
+    const grid = $('#projects-grid');
+    const fIn  = $('#filterInput');
+    const sSel = $('#sortSelect');
+    if (!grid) return;
 
-// ===== Scroll-reveal för statiska .reveal-element i DOM =====
-(function () {
-  const items = Array.from(document.querySelectorAll('.reveal'));
-  if (!items.length) return;
+    let ALL = [];
 
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) {
-    items.forEach(el => el.classList.add('is-visible'));
-    return;
-  }
+    function render(list) {
+      grid.innerHTML = list.map(p => `
+        <article class="project-card reveal" role="listitem">
+          <div class="project-media">
+            <img src="${p.image || 'placeholder.jpg'}"
+                 alt="${p.title ? `Projektbild: ${p.title}` : 'Projektbild'}"
+                 loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">${p.title || 'Projekt'}</h3>
+            <div class="project-meta">${p.client ?? '—'} • ${p.year ?? '—'}</div>
+            <p class="project-summary">${p.summary || ''}</p>
+          </div>
+          <div class="project-tags">
+            ${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}
+          </div>
+        </article>
+      `).join('');
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
+      // Reveal på ny-renderade kort
+      $$('.project-card.reveal', grid).forEach(el => revealObserver.observe(el));
+    }
+
+    function apply() {
+      const term = (fIn?.value || '').toLowerCase();
+      const sort = sSel?.value || 'year-desc';
+
+      let list = ALL.filter(p => {
+        const hay = [p.title, p.client, ...(p.tags || [])].join(' ').toLowerCase();
+        return hay.includes(term);
+      });
+
+      list.sort((a, b) => {
+        if (sort === 'year-asc')  return (a.year ?? 0) - (b.year ?? 0);
+        if (sort === 'year-desc') return (b.year ?? 0) - (a.year ?? 0);
+        if (sort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
+        if (sort === 'title-desc')return (b.title || '').localeCompare(a.title || '');
+        return 0;
+      });
+
+      render(list);
+    }
+
+    // Litet debounce för filter-input
+    let t;
+    fIn && fIn.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(apply, 140);
     });
-  }, { threshold: 0.12 });
+    sSel && sSel.addEventListener('change', apply);
 
-  items.forEach(el => io.observe(el));
+    // Hämta data
+    axios.get('Darin-projects.json')
+      .then(res => { ALL = Array.isArray(res.data) ? res.data : []; apply(); })
+      .catch(() => { grid.innerHTML = '<p>Kunde inte läsa in projekt just nu.</p>'; });
+  })();
+
 })();
