@@ -22,11 +22,6 @@ h2 {
   margin: 2rem 0;
 }
 
-p {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-  text-align: justify;
-}
 
 li {
   display: inline-block;
@@ -92,16 +87,7 @@ img:hover {
   margin: 0;
 }
 
-#menu-toggle {
-  display: none;
-}
-
-#menu-icon {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
+/* Här börjar ren meny utan knapp */
 #main-nav {
   list-style: none;
   display: flex;
@@ -121,6 +107,9 @@ img:hover {
   background-color: #ffb6c1;
   transform: scale(1.05);
 }
+/* Här slutar menyn */
+
+/* Behåller resten av din CSS som innan */
 
 .kompetenser {
   max-width: 600px;
@@ -179,46 +168,4 @@ img:hover {
 
 .project-title {
   font-weight: bold;
-}
-
-
-@media (max-width: 768px) {
-  #menu-icon {
-    display: block;
-  }
-
-  #main-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #ffe0e5;
-    border-radius: 10px;
-    padding: 10px;
-    width: 200px;
-    z-index: 1000;
-  }
-
-  #menu-toggle:checked ~ #main-nav {
-    display: flex;
-  }
-
-  #main-nav li {
-    display: block;
-    margin: 10px 0;
-  }
-}
-
-
-
-/* Stora desktops */
-@media (min-width: 1280px) {
-  #menu-icon {
-    display: none;
-  }
-  #main-nav {
-    display: flex;
-    gap: 15px;
-  }
 }
