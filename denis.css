@@ -5,31 +5,31 @@ html, body {
 
 body {
   margin: 0;
-  font-family: sans-serif ;         /* lämna tomt eller fyll i */
-  color: #2e2a27;               /* lämna tomt eller fyll i */
-  background-color:#f7f2ea ;    /* valfritt */
+  font-family: sans-serif ;         
+  color: #2e2a27;               
+  background-color:#f7f2ea ;    
 }
 
-/* Begränsa sidbredd och centrera innehållet */
+
 main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
-/* ===== Bildspel ===== */
+/* Bildspel */
 .slideshow {
   position: relative;
-  max-width: 800px;      /* <- justera storlek här så det inte blir för stort */
+  max-width: 800px;      
   margin: 1rem auto;
 }
 
 .slides {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;  /* responsivt förhållande */
+  aspect-ratio: 16 / 9;  
   overflow: hidden;
-  border-radius: 0.75rem; /* valfritt */
+  border-radius: 0.75rem; 
 }
 
 /* Stapla alla slides ovanpå varandra; visa bara den aktiva */
@@ -47,13 +47,13 @@ height: 100%;
 object-fit: cover; 
 }
 
-/* Endast knappar – utan förvalda färger */
+/* knappar */
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 44px; height: 44px;
-  border: 1px solid;   /* använder currentColor om 'color' sätts */
+  border: 1px solid;   
   background: #8b5e34 ;        
   color: #ffffff;             
   border-radius: 999px;
@@ -65,7 +65,7 @@ object-fit: cover;
 .next { right: .5rem; }
 
 
-/* ===== Kortet överst ===== */
+/*  Kortet överst  */
 .bild-text{
   border: solid 1px #d8c4b6;
   border-radius: 10px;
@@ -97,7 +97,7 @@ object-fit: cover;
   color: #2e2a27;
 }
 
-/* Mindre skärmar – valfritt */
+/* Mindre skärmar */
 @media (max-width: 520px) {
   .nav { width: 40px; height: 40px; }
 }
@@ -141,31 +141,31 @@ object-fit: cover;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: #3b2f2f;      /* byt färg om du vill */
+  background: #3b2f2f;     
   border-bottom: 1px solid #d8c4b6;
 }
 
-/* Loggan / rubrik */
+/* Loggan rubrik */
 .logo {
   font-weight: bold;
   font-size: 1.2rem;
   color: beige;
 }
 
-/* Länkar (desktop) */
+/* Länkar */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 1rem;
 }
 
-/* Tar bort standardstil på länkar */
+
 .nav-links a {
   text-decoration: none;
   color: beige;
 }
 
-/* Meny-ikon (mobil) */
+/* Meny-ikon */
 .menu-toggle {
   display: none;
   font-size: 1.5rem;
@@ -174,14 +174,14 @@ object-fit: cover;
   cursor: pointer;
 }
 
-/* ---- Mobil-vy ---- */
+/* Mobil-vy  */
 @media (max-width: 700px) {
   .menu-toggle {
-    display: block;   /* visa ikonen */
+    display: block;   
   }
 
   .nav-links {
-    display: none;    /* göm länkarna från början */
+    display: none;    
     flex-direction: column;
     gap: 0.5rem;
     position: absolute;
@@ -192,7 +192,7 @@ object-fit: cover;
     padding: 1rem;
   }
 
-  /* när vi aktiverar menyn via JS */
+  
   .nav-links.active {
     display: flex;
   }
