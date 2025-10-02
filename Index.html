@@ -1,157 +1,226 @@
 <!DOCTYPE html>
 <html lang="sv">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kaffestunden</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kaffestunden</title>
 
-  <!-- Behåll dina stilmallar -->
-  <link rel="stylesheet" href="Rutor.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="meny.css" />
-  <link rel="stylesheet" href="hitta-oss.css" />
-  <link rel="stylesheet" href="omoss.css" />
+    <!-- Behåll dina stilmallar -->
+    <link rel="stylesheet" href="Rutor.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="meny.css" />
+    <link rel="stylesheet" href="hitta-oss.css" />
+    <link rel="stylesheet" href="omoss.css" />
 
-  <!-- Dina skript -->
-  <script src="contact.js" defer></script>
-  <script src="album.js" defer></script>
-  <script src="hamburgerIcon.js" defer></script>
-</head>
-<body>
+    <!-- Dina skript -->
+    <script src="contact.js" defer></script>
+    <script src="album.js" defer></script>
+    <script src="hamburgerIcon.js" defer></script>
+  </head>
+  <body>
+    <!-- HEADER: logotyp/namn + hamburgarknapp + navigering -->
+    <header class="main-header">
+      <div class="brand"><h1>KaffeStunden</h1></div>
 
-  <!-- HEADER: logotyp/namn + hamburgarknapp + navigering -->
-  <header class="main-header">
-    <div class="brand"><h1>KaffeStunden</h1></div>
+      <!-- Enkel hamburgarknapp (JS togglar klassen .nav-open på <body>) -->
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Öppna meny"
+      >
+        ☰
+      </button>
 
-    <!-- Enkel hamburgarknapp (JS togglar klassen .nav-open på <body>) -->
-    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Öppna meny">☰</button>
+      <!-- Navigation som ankar-länkar till sektioner -->
+      <nav id="main-nav">
+        <ul class="main-nav">
+          <li><a href="#meny">Meny</a></li>
+          <li><a href="#fotoalbum">Fotoalbum</a></li>
+          <li><a href="#om-oss">Om oss</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#hitta-oss">Hitta oss</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- Navigation som ankar-länkar till sektioner -->
-    <nav id="main-nav">
-      <ul class="main-nav">
-        <li><a href="#meny">Meny</a></li>
-        <li><a href="#fotoalbum">Fotoalbum</a></li>
-        <li><a href="#om-oss">Om oss</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="#hitta-oss">Hitta oss</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main>
+      <!-- INTRO: en rubrik + kort text -->
+      <section class="intro">
+        <h2>Bryggt för att överleva tentan</h2>
+        <p>
+          Kaffestunden erbjuder gott kaffe med fokus på studentens vardag: smak
+          + energi för att klara studierna.
+        </p>
+      </section>
 
-  <main>
-    <!-- INTRO: en rubrik + kort text -->
-    <section class="intro">
-      <h2>Bryggt för att överleva tentan</h2>
-      <p>Kaffestunden erbjuder gott kaffe med fokus på studentens vardag: smak + energi för att klara studierna.</p>
-    </section>
+      <!-- MENY: fyra enkla kort -->
+      <section id="meny" class="kaffe-meny">
+        <h2>Meny</h2>
+        <div class="meny-grid">
+          <article class="kaffe-ruta">
+            <h3>Bryggkaffe</h3>
+            <p>10 kr</p>
+          </article>
+          <article class="kaffe-ruta">
+            <h3>Cappuccino</h3>
+            <p>20 kr</p>
+          </article>
+          <article class="kaffe-ruta">
+            <h3>Latte</h3>
+            <p>29 kr</p>
+          </article>
+          <article class="kaffe-ruta">
+            <h3>Espresso</h3>
+            <p>15 kr</p>
+          </article>
+        </div>
+      </section>
 
-    <!-- MENY: fyra enkla kort -->
-    <section id="meny" class="kaffe-meny">
-      <h2>Meny</h2>
-      <div class="meny-grid">
-        <article class="kaffe-ruta"><h3>Bryggkaffe</h3><p>10 kr</p></article>
-        <article class="kaffe-ruta"><h3>Cappuccino</h3><p>20 kr</p></article>
-        <article class="kaffe-ruta"><h3>Latte</h3><p>29 kr</p></article>
-        <article class="kaffe-ruta"><h3>Espresso</h3><p>15 kr</p></article>
-      </div>
-    </section>
+      <!-- FOTOALBUM: responsivt grid med bilder + bildtext -->
+      <section id="fotoalbum" class="album" aria-labelledby="album-title">
+        <h2 id="album-title">Fotoalbum</h2>
+        <div class="album-grid">
+          <figure class="album-item">
+            <img
+              src="EspressoFönster.jpeg"
+              alt="Espresso i fönsterljus"
+              loading="lazy"
+            />
+            <figcaption>Espresso i fönsterljus</figcaption>
+          </figure>
 
-    <!-- FOTOALBUM: responsivt grid med bilder + bildtext -->
-    <section id="fotoalbum" class="album" aria-labelledby="album-title">
-      <h2 id="album-title">Fotoalbum</h2>
-      <div class="album-grid">
-        <figure class="album-item">
-            <img src="EspressoFönster.jpeg" alt="Espresso i fönsterljus" loading="lazy" />
-          <figcaption>Espresso i fönsterljus</figcaption>
-        </figure>
-
-        <figure class="album-item">
+          <figure class="album-item">
             <img src="Latteart.jpeg" alt="Latte art i kopp" loading="lazy" />
-          <figcaption>Latte art</figcaption>
-        </figure>
+            <figcaption>Latte art</figcaption>
+          </figure>
 
-        <figure class="album-item">
-            <img src="Bryggkaffe.jpeg" alt="Bryggkaffe på skrivbord" loading="lazy" />
-          <figcaption>Bryggkaffe på skrivbord</figcaption>
-        </figure>
+          <figure class="album-item">
+            <img
+              src="Bryggkaffe.jpeg"
+              alt="Bryggkaffe på skrivbord"
+              loading="lazy"
+            />
+            <figcaption>Bryggkaffe på skrivbord</figcaption>
+          </figure>
 
-        <figure class="album-item">
+          <figure class="album-item">
             <img src="Bönor.jpeg" alt="Kaffebönor i skål" loading="lazy" />
-          <figcaption>Kaffebönor</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- OM OSS: fyra kort med bild + namn + roll + kort text -->
-    <section id="om-oss" class="about">
-      <h2>Om oss</h2>
-      <div class="about-grid">
-        <article class="about-card">
-          <a href="William.html"><img src="William.jpeg" alt="William" /></a>
-          <h3>William – Ekonomiansvarig</h3>
-          <p>Håller koll på siffrorna (och kaffekassan).</p>
-        </article>
-
-        <article class="about-card">
-          <a href="Darin.html"><img src="DK.jpeg" alt="Darin" /></a>
-          <h3>Darin – IT-ansvarig</h3>
-          <p>Fixar allt tekniskt – syns först när något går sönder.</p>
-        </article>
-
-        <article class="about-card">
-          <a href="Natalie.html"><img src="Nat.jpg" alt="Natalie" /></a>
-          <h3>Natalie – VD</h3>
-          <p>Driver utvecklingen med fokus på kvalitet och innovation.</p>
-        </article>
-
-        <article class="about-card">
-          <a href="denis.html"><img src="Denis.jpeg" alt="Denis" /></a>
-          <h3>Denis – Marknadsförare</h3>
-          <p>Kampanjer som träffar lika bra som första koppen.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- KONTAKT: minimalt men tydligt formulär -->
-    <section id="kontakt" class="contact">
-      <h2>Kontakt</h2>
-      <form id="contact-form" novalidate>
-        <div class="field">
-          <label for="name">Namn*</label>
-          <input id="name" name="name" type="text" required placeholder="Ditt namn" />
-          <small class="error" aria-live="polite"></small>
+            <figcaption>Kaffebönor</figcaption>
+          </figure>
         </div>
+      </section>
 
-        <div class="field">
-          <label for="email">E-post*</label>
-          <input id="email" name="email" type="email" required placeholder="namn@exempel.se" />
-          <small class="error" aria-live="polite"></small>
+      <!-- OM OSS: fyra kort med bild + namn + roll + kort text -->
+      <section id="om-oss" class="about">
+        <h2>Om oss</h2>
+        <div class="about-grid">
+          <article class="about-card">
+            <a href="William.html"><img src="William.jpeg" alt="William" /></a>
+            <h3>William – Ekonomiansvarig</h3>
+            <p>Håller koll på siffrorna (och kaffekassan).</p>
+          </article>
+
+          <article class="about-card">
+            <a href="Darin.html"><img src="DK.jpeg" alt="Darin" /></a>
+            <h3>Darin – IT-ansvarig</h3>
+            <p>Fixar allt tekniskt – syns först när något går sönder.</p>
+          </article>
+
+          <article class="about-card">
+            <a href="Natalie.html"><img src="Nat.jpg" alt="Natalie" /></a>
+            <h3>Natalie – VD</h3>
+            <p>Driver utvecklingen med fokus på kvalitet och innovation.</p>
+          </article>
+
+          <article class="about-card">
+            <a href="denis.html"><img src="Denis.jpeg" alt="Denis" /></a>
+            <h3>Denis – Marknadsförare</h3>
+            <p>Kampanjer som träffar lika bra som första koppen.</p>
+          </article>
         </div>
+      </section>
 
-        <div class="field">
-          <label for="message">Meddelande*</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Minst 10 tecken"></textarea>
-          <small class="error" aria-live="polite"></small>
+      <!-- KONTAKT: minimalt men tydligt formulär -->
+      <section id="kontakt" class="contact">
+        <h2>Kontakt</h2>
+
+        <form id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Namn*</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              placeholder="Ditt namn"
+            />
+            <small class="error" id="name-error" hidden
+              >Minst 2 tecken krävs.</small
+            >
+          </div>
+
+          <div class="field">
+            <label for="email">E-post*</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="namn@exempel.se"
+            />
+            <small class="error" id="email-error" hidden>invalid email</small>
+          </div>
+
+          <div class="field">
+            <label for="phone">Telefon</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="070 123 45 67"
+            />
+            <small class="error" id="phone-error" hidden
+              >Ogiltigt telefonnummer.</small
+            >
+          </div>
+
+          <div class="field">
+            <label for="message">Meddelande*</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder="Skriv ditt meddelande här..."
+            ></textarea>
+            <small class="error" id="message-error" hidden
+              >Minst 10 tecken krävs.</small
+            >
+          </div>
+
+          <button type="submit" class="btn">Skicka</button>
+          <p id="form-status" class="form-status" aria-live="polite" hidden></p>
+        </form>
+      </section>
+
+      <!-- HITTA OSS: enkel inbäddad karta -->
+      <section id="hitta-oss" class="find-us">
+        <h2>Hitta oss</h2>
+        <p>Fakultetsgatan 1, 702 81 Örebro</p>
+        <div class="map-container">
+          <iframe
+            title="Karta till KaffeStunden"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2047.1719604018055!2d15.228707715925125!3d59.25278998162752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c14ab1234567%3A0x89abcdef12345678!2sFakultetsgatan%201%2C%20702%2081%20Örebro!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
+            width="600"
+            height="450"
+            style="border: 0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-
-        <button type="submit" class="btn">Skicka</button>
-        <p id="form-status" class="form-status" aria-live="polite"></p>
-      </form>
-    </section>
-
-    <!-- HITTA OSS: enkel inbäddad karta -->
-    <section id="hitta-oss" class="find-us">
-      <h2>Hitta oss</h2>
-      <p>Fakultetsgatan 1, 702 81 Örebro</p>
-      <div class="map-container">
-        <iframe
-          title="Karta till KaffeStunden"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2047.1719604018055!2d15.228707715925125!3d59.25278998162752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c14ab1234567%3A0x89abcdef12345678!2sFakultetsgatan%201%2C%20702%2081%20Örebro!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
-          width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </section>
-  </main>
-
-</body>
+      </section>
+    </main>
+  </body>
 </html>
