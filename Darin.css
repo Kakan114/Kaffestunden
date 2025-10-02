@@ -31,26 +31,50 @@ img { max-width: 100%; display: block; }     /* gör så bilder inte sticker uta
 .nav-toggle-bar::before { top: -6px; }
 .nav-toggle-bar::after { top: 6px; }
 
-.main-nav {                                  /* menylista (mobil) */
-  position: fixed;
-  inset: auto 0 0 auto;
-  top: 56px;
-  width: 75vw; max-width: 300px;
-  transform: translateX(100%);               /* gömd från början */
-  transition: .2s;
-  background: #fff;
-  border-left: 1px solid #eee;
-  padding: 12px;
-}
+
 .main-nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .main-nav a { text-decoration: none; color: #222; }
 
 body.nav-open .main-nav { transform: translateX(0); }  /* öppna menyn med JS */
 
-@media (min-width:768px) {                   /* desktop-läge */
-  .nav-toggle { display: none; }
-  .main-nav { position: static; transform: none!important; width: auto; padding: 0; border: 0; }
-  .main-nav ul { display: flex; gap: 16px; }
+/* ===== Mobilmeny ===== */
+@media (max-width: 767px) {
+  .main-nav {
+    position: absolute;
+    top: 100%;          /* precis under headern */
+    right: 0;           /* fäst till höger */
+    width: 200px;       /* bredd på menyn i mobil */
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 20px;
+    transform: scaleY(0);       /* gömd från början */
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+
+  body.nav-open .main-nav {
+    transform: scaleY(1);       /* visas när man trycker på hamburgaren */
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;   /* göm hamburgarknappen på desktop */
+  }
+  
+  .main-nav {
+    position: static; 
+    transform: none !important;
+    width: auto;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 16px;
+  }
 }
 
 .hero {                                      /* hero (första sektionen) */
