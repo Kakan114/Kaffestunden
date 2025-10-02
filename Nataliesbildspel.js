@@ -28,11 +28,3 @@ prevBtn.addEventListener("click", () => {
   showImage((currentIndex - 1 + images.length) % images.length);
 });
 
-// Gör album-bilderna klickbara
-const albumImages = document.querySelectorAll(".album img");
-albumImages.forEach((img, index) => {
-  img.addEventListener("click", () => {
-    showImage(index);
-  });
-});
- 
