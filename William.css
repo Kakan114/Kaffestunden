@@ -88,24 +88,6 @@ header {
   flex: 1;
 }
 
-/* Responsiv profil */
-@media (min-width: 768px) {
-  .profil-container {
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-  }
-  .profil-bild {
-    width: 280px;
-    height: 280px;
-    margin-bottom: 0;
-  }
-  .profil-text { font-size: 1.2em; }
-}
-
-@media (min-width: 1200px) {
-  .profil-text { font-size: 1.4em; }
-}
 
 
 /* === Bildspel === */
