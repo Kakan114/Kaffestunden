@@ -86,36 +86,33 @@
   // =========================
   // 3) Bildspel
   // =========================
-  (function slideshow() {
-    const root   = $('.slideshow');
-    if (!root) return;
+ (function slideshow() {
+  const root   = $('.slideshow');
+  if (!root) return;
 
-    const slides = $$('.slide', root);
-    const dots   = $$('.dot', root);
-    const prev   = $('.prev', root);
-    const next   = $('.next', root);
-    if (!slides.length || !prev || !next) return;
+  const slides = $$('.slide', root);
+  const prev   = $('.prev', root);
+  const next   = $('.next', root);
+  if (!slides.length || !prev || !next) return;
 
-    let i = 0;
-    const wrap = n => (n + slides.length) % slides.length;
+  let i = 0;
+  const wrap = n => (n + slides.length) % slides.length;
 
-    function show(idx) {
-      i = wrap(idx);
-      slides.forEach((el, n) => el.classList.toggle('is-active', n === i));
-      dots.forEach((d, n) => d.classList.toggle('is-active', n === i));
-    }
+  function show(idx) {
+    i = wrap(idx);
+    slides.forEach((el, n) => el.classList.toggle('is-active', n === i));
+  }
 
-    next.addEventListener('click', () => show(i + 1));
-    prev.addEventListener('click', () => show(i - 1));
-    dots.forEach((d, n) => d.addEventListener('click', () => show(n)));
+  next.addEventListener('click', () => show(i + 1));
+  prev.addEventListener('click', () => show(i - 1));
 
-    root.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
-      if (e.key === 'ArrowLeft')  { e.preventDefault(); show(i - 1); }
-    });
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); show(i - 1); }
+  });
 
-    show(0);
-  })();
+  show(0);
+})();
 
   // =========================
   // 4) Projekt: hämta + render + filter/sort + reveal
