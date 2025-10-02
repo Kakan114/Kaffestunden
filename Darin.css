@@ -1,18 +1,5 @@
-/* Behaglig scroll utan inline-CSS i HTML */
 html { scroll-behavior: smooth; }
 
-/* Skip-link (syns bara vid fokus) */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: #fff;
-  color: #111;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  z-index: 1000;
-}
-.skip-link:focus { left: 8px; }
 
 /* Header layout */
 .main-header {
@@ -27,9 +14,22 @@ html { scroll-behavior: smooth; }
   backdrop-filter: blur(6px);
   border-bottom: 1px solid #e6e6e6;
 }
-.brand { display: flex; align-items: center; gap: 10px; }
-.brand .site-title { font-weight: 700; text-decoration: none; color: #2b2b2b; }
-.brand .logo img { width: 36px; height: 36px; object-fit: cover; border-radius: 8px; }
+
+.brand { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; }
+.brand .site-title { 
+  font-weight: 700; 
+  text-decoration: none; 
+  color: #2b2b2b; 
+}
+.brand .logo img { 
+  width: 36px; 
+  height: 36px; 
+  object-fit: cover; 
+  border-radius: 8px; 
+}
 
 /* Hamburger-knapp */
 .nav-toggle {
@@ -37,11 +37,18 @@ html { scroll-behavior: smooth; }
   flex-direction: column;
   gap: 4px;
   width: 40px; height: 40px;
-  align-items: center; justify-content: center;
-  border: 1px solid #ddd; border-radius: 10px;
-  background: #fff; cursor: pointer;
+  align-items: center; 
+  justify-content: center;
+  border: 1px solid #ddd; 
+  border-radius: 10px;
+  background: #fff; 
+  cursor: pointer;
 }
-.nav-toggle-bar { width: 18px; height: 2px; background: #333; }
+.nav-toggle-bar { 
+  width: 18px; 
+  height: 2px; 
+  background: #333; 
+}
 
 /* Mobilmeny (default = dold) */
 .main-nav {
@@ -332,13 +339,32 @@ body.nav-open .main-nav { transform: translateX(0); }
 }
 
 /* ===== Kompetenser (skillbars) ===== */
-.skills { padding: 56px 20px; background: #fff; }
-.skills-inner { max-width: 1100px; margin: 0 auto; }
+.skills { 
+  padding: 56px 20px;
+  background: #fff; 
+}
+.skills-inner { 
+  max-width: 1100px;
+  margin: 0 auto;
+  }
 
-#skills h2 { font-size: 2rem; margin-bottom: 8px; color: #2b2b2b; }
-.skills-lead { color: #444; margin-bottom: 16px; }
+#skills h2 { 
+  font-size: 2rem;
+  margin-bottom: 8px; 
+  color: #2b2b2b; 
+}
+.skills-lead { 
+  color: #444; 
+  margin-bottom: 16px;
+}
 
-.skill-list { display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; }
+.skill-list {
+  display: grid;
+  gap: 14px; 
+  padding: 0; 
+  margin: 0; 
+  list-style: none; 
+}
 
 .skill {
   display: grid;
@@ -346,8 +372,11 @@ body.nav-open .main-nav { transform: translateX(0); }
 }
 
 .skill-label {
-  display: flex; align-items: baseline; justify-content: space-between;
-  font-weight: 600; color: #2e2e2e;
+  display: flex; 
+  align-items: baseline;
+  justify-content: space-between;
+  font-weight: 600; 
+  color: #2e2e2e;
 }
 
 .skill-bar {
