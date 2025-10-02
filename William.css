@@ -3,14 +3,17 @@
   text-align: center;
   margin: 40px 0 20px;
   font-size: 2rem;
-  color: #333; /* mörkgrå text istället för vit */
+  color: #333;
+  /* mörkgrå text istället för vit */
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* ljusgrå ton */
-  color: #333; /* mörkgrå text */
+  background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+  /* ljusgrå ton */
+  color: #333;
+  /* mörkgrå text */
 }
 
 
@@ -24,9 +27,11 @@ body {
   width: 95%;
   margin: 30px auto;
   padding: 30px 20px;
-  background: #f9f9f9; /* ljusgrå */
+  background: #f9f9f9;
+  /* ljusgrå */
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* mjukare skugga */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  /* mjukare skugga */
   box-sizing: border-box;
   min-height: 300px;
 }
@@ -36,7 +41,7 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
@@ -56,12 +61,20 @@ body {
   margin: 40px auto;
   overflow: hidden;
   border-radius: 15px;
-  background: #ffffff; /* vit bakgrund */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  background: #ffffff;
+  /* vit bakgrund */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.slide { display: none; width: 100%; height: 100%; }
-.slide.active { display: block; }
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.slide.active {
+  display: block;
+}
 
 .slide img {
   width: 100%;
@@ -70,11 +83,13 @@ body {
   border-radius: 15px;
 }
 
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(100,100,100,0.6); /* neutral grå knapp */
+  background: rgba(100, 100, 100, 0.6);
+  /* neutral grå knapp */
   color: #fff;
   border: 0;
   padding: 10px 16px;
@@ -83,11 +98,24 @@ body {
   border-radius: 50%;
   transition: background 0.3s;
 }
-.prev { left: 10px; }
-.next { right: 10px; }
-.prev:hover, .next:hover { background: rgba(150,150,150,0.8); }
 
-.text { font-size: 14px; color: #333; }
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+  background: rgba(150, 150, 150, 0.8);
+}
+
+.text {
+  font-size: 14px;
+  color: #333;
+}
 
 
 /* === Projektkort === */
@@ -104,7 +132,7 @@ body {
   border-radius: 10px;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .projekt-kort img {
@@ -118,7 +146,8 @@ h2 {
   text-align: center;
   font-size: 1.8rem;
   margin: 30px 0 20px;
-  color: #333;   /* mörkgrå istället för varm brun */
+  color: #333;
+  /* mörkgrå istället för varm brun */
   font-weight: 600;
   letter-spacing: 1px;
 }

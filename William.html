@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +20,7 @@
 
   <title>William - KaffeStunden</title>
 </head>
+
 <body>
   <!-- Meny -->
   <header class="main-header">
@@ -45,17 +47,20 @@
   <h1 class="profil-header">Ekonomiansvarig</h1>
 
   <!-- Profil -->
-<section class="profil-sektion">
-  <h2 class="profil-titel">William Barefrem</h2>
-  <div class="profil-container">
-    <img src="William.jpeg" alt="William" class="profil-bild" />
-    <div class="profil-text">
-      <p>
-        Som ekonomiansvarig på KaffeStunden har jag det övergripande ansvaret för företagets ekonomi och finansiella planering. Min roll innebär att säkerställa att alla ekonomiska processer fungerar effektivt och korrekt, från bokföring och budgetering till rapportering och analys. Jag övervakar kassaflödet, följer upp intäkter och kostnader samt säkerställer att företaget håller sig inom uppsatta budgetramar.
-      </p>
+  <section class="profil-sektion">
+    <h2 class="profil-titel">William Barefrem</h2>
+    <div class="profil-container">
+      <img src="William.jpeg" alt="William" class="profil-bild" />
+      <div class="profil-text">
+        <p>
+          Som ekonomiansvarig på KaffeStunden har jag det övergripande ansvaret för företagets ekonomi och finansiella
+          planering. Min roll innebär att säkerställa att alla ekonomiska processer fungerar effektivt och korrekt, från
+          bokföring och budgetering till rapportering och analys. Jag övervakar kassaflödet, följer upp intäkter och
+          kostnader samt säkerställer att företaget håller sig inom uppsatta budgetramar.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Container där Axios kommer ladda in projekten -->
   <section>
@@ -64,22 +69,23 @@
   </section>
 
 
-<!-- Bildspel -->
-<section>
-  <h2>Bildspel</h2>   <!-- rubrik ligger i egen sektion -->
-  <div class="slideshow-container">
-    <div class="slide active"><img src="Kaffe1.jpg" alt="Bild 1" /></div>
-    <div class="slide"><img src="kaffe2.jpg" alt="Bild 2" /></div>
-    <div class="slide"><img src="kaffe3.jpg" alt="Bild 3" /></div>
-    <div class="slide"><img src="kaffe4.jpg" alt="Bild 4" /></div>
-    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="next" onclick="changeSlide(1)">&#10095;</button>
-  </div>
-</section>
+  <!-- Bildspel -->
+  <section>
+    <h2>Bildspel</h2> <!-- rubrik ligger i egen sektion -->
+    <div class="slideshow-container">
+      <div class="slide active"><img src="Kaffe1.jpg" alt="Bild 1" /></div>
+      <div class="slide"><img src="kaffe2.jpg" alt="Bild 2" /></div>
+      <div class="slide"><img src="kaffe3.jpg" alt="Bild 3" /></div>
+      <div class="slide"><img src="kaffe4.jpg" alt="Bild 4" /></div>
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </section>
 
   <!-- JS ska alltid ligga sist i body -->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="script.js"></script>  <!-- Axios-projekt -->
-<script src="William.js"></script>  <!-- Bildspel -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script> <!-- Axios-projekt -->
+  <script src="William.js"></script> <!-- Bildspel -->
 </body>
+
 </html>
