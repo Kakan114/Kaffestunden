@@ -1,69 +1,63 @@
-// Enkel kontakt: validera & öppna mailklienten med förifyllt innehåll
-(function () {
+(() => {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  const status = document.getElementById('form-status');
-  const emailTo = 'kaffestunden@example.com'; // ← BYT till er riktiga adress
+  const statusEl = document.getElementById('form-status');
+
+  const nameEl = document.getElementById('name');
+  const emailEl = document.getElementById('email');
+  const phoneEl = document.getElementById('phone');
+  const msgEl = document.getElementById('message');
+
+  const nameErr = document.getElementById('name-error');
+  const emailErr = document.getElementById('email-error');
+  const phoneErr = document.getElementById('phone-error');
+  const msgErr = document.getElementById('message-error');
+
+  function validateName() {
+    const ok = nameEl.value.trim().length >= 2;
+    nameErr.hidden = ok;
+    return ok;
+  }
+
+  function validateEmail() {
+    const ok = emailEl.value.includes('@');
+    emailErr.hidden = ok;
+    return ok;
+  }
+
+  function validatePhone() {
+    const v = phoneEl.value.trim();
+    const ok = v === '' || /^[0-9 +()-]{6,}$/.test(v);
+    phoneErr.hidden = ok;
+    return ok;
+  }
+
+  function validateMsg() {
+    const ok = msgEl.value.trim().length >= 10;
+    msgErr.hidden = ok;
+    return ok;
+  }
+
+  // Realtidsvalidering
+  nameEl.addEventListener('input', validateName);
+  emailEl.addEventListener('input', validateEmail);
+  phoneEl.addEventListener('input', validatePhone);
+  msgEl.addEventListener('input', validateMsg);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    status.textContent = '';
-
-    const nameEl = form.querySelector('#name');
-    const emailEl = form.querySelector('#email');
-    const msgEl = form.querySelector('#message');
-
-    // enkel validering
-    let ok = true;
-    clearErrors();
-
-    if (!nameEl.value.trim()) { setError(nameEl, 'Ange ditt namn'); ok = false; }
-    if (!emailEl.value.trim() || !emailEl.checkValidity()) { setError(emailEl, 'Ange en giltig e-post'); ok = false; }
-    if (!msgEl.value.trim()) {
-  setError(msgEl, 'Skriv ett meddelande');
-  ok = false;
-} else if (msgEl.value.trim().length < 10) {
-  setError(msgEl, 'Meddelandet måste vara minst 10 tecken långt');
-  ok = false;
-}
-
-msgEl.addEventListener('input', () => {
-  if (msgEl.value.trim().length < 10) {
-    setError(msgEl, 'Meddelandet måste vara minst 10 tecken långt');
-  } else {
-    clearErrors();
-  }
-});
-
+    const ok = validateName() & validateEmail() & validatePhone() & validateMsg();
     if (!ok) return;
 
-    const subject = `Kontakt från ${nameEl.value.trim()}`;
-    const body =
-`Namn: ${nameEl.value.trim()}
-E-post: ${emailEl.value.trim()}
-
-Meddelande:
-${msgEl.value.trim()}`;
-
-    // öppna användarens e-postklient
-    const mailto = `mailto:${encodeURIComponent(emailTo)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-
-    // valfri feedback i UI:t
-    status.textContent = 'Öppnar ditt e-postprogram… Om inget händer, maila oss direkt.';
     form.reset();
+    nameErr.hidden = emailErr.hidden = phoneErr.hidden = msgErr.hidden = true;
+
+    if (statusEl) {
+      statusEl.textContent = 'Tack, skickat!';
+      statusEl.hidden = false;
+      setTimeout(() => { statusEl.hidden = true; }, 3000);
+    }
   });
-
-  function setError(input, msg) {
-    const box = input.closest('.field');
-    const small = box?.querySelector('.error');
-    if (small) small.textContent = msg;
-    input.setAttribute('aria-invalid', 'true');
-  }
-
-  function clearErrors() {
-    form.querySelectorAll('.error').forEach(el => el.textContent = '');
-    form.querySelectorAll('[aria-invalid="true"]').forEach(el => el.removeAttribute('aria-invalid'));
-  }
 })();
+
