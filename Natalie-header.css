@@ -90,28 +90,4 @@
     background: none;
   }
 
-  #main-nav li {
-    margin: 0;
-  }
-}
-
-/* Stora skärmar (>1280px) */
-@media (min-width: 1280px) {
-  #menu-icon {
-    display: none;
-  }
-
-  #main-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    position: static;
-    width: auto;
-    padding: 0;
-    background: none;
-  }
-
-  #main-nav li {
-    margin: 0;
-  }
 }
