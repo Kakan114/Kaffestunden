@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // När formuläret skickas
   form.addEventListener('submit', (e) => {
-   
+    e.preventDefault(); // STOPPAR sidan från att ladda om
 
     const isNameOk = checkName();
     const isEmailOk = checkEmail();
