@@ -1,0 +1,37 @@
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.main-header .brand h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Här börjar ren meny utan knapp */
+#main-nav {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+#main-nav li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#main-nav li a:hover {
+  background-color: #ffb6c1;
+  transform: scale(1.05);
+}
+
