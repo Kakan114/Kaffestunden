@@ -9,6 +9,13 @@ img {
   transition: transform 0.5s;
 }
 
+.intro-bild img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
 img:hover {
   transform: scale(1.05);
 }
@@ -17,7 +24,6 @@ img:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 }
 
 .slideshow-container img {
@@ -28,11 +34,3 @@ img:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-
-
-.intro-bild img {
-  width: 250px;
-  height: auto;
-  border-radius: 10px;
-  margin: 0 auto;
-}
