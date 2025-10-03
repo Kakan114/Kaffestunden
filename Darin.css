@@ -19,7 +19,7 @@ img {
 .hero h1 { 
   margin: 0 0 10px; 
 }
-.cta-button {                                /* knapp i hero */
+.cta-button {                                
   display: inline-block;
   padding: 10px 16px;
   background: #6b4226;
@@ -31,7 +31,7 @@ img {
 .about {
   padding: 40px 16px;
   background: #fff;
-}   /* om mig */
+}   
 
 .about-inner {
   max-width: 1000px;

@@ -1,5 +1,5 @@
 (function () {
-  // Hämta alla slides och knappar
+
   const slides = Array.from(document.querySelectorAll('.slide'));
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
@@ -40,8 +40,7 @@ axios.get('denis.json')
   })
   .catch(err => console.error('Kunde inte ladda denis.json', err));
 
-//mobilmeny
-const menuToggle = document.getElementById('menu-toggle');
+  const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 
 menuToggle.addEventListener('click', () => {

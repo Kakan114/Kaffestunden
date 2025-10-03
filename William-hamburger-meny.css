@@ -1,7 +1,7 @@
 .main-header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* gör så loggan ligger till vänster och knappen till höger */
+  justify-content: space-between; 
   gap: 12px;
   padding: 16px;
   background: #ffffff;
@@ -18,11 +18,10 @@
   color: #191515;
   cursor: pointer;
   line-height: 1;
-  margin-left: auto;   /* detta trycker knappen längst till höger */
+  margin-left: auto;   
 }
 
 
-/* Horisontell meny på desktop */
 .main-nav{
   list-style:none;
   margin:0;
@@ -36,11 +35,9 @@
 }
 
 
-/* ===== Mobil ===== */
 @media (max-width:768px){
   .nav-toggle{ display:inline-block; }
 
-  /* Göm menyn som standard och fäll ner under headern när aktiv */
   .main-nav{
     display:none;
     position:absolute;
