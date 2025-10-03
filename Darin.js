@@ -99,7 +99,7 @@
   })();
 
 
-  // 4) Projekt: hämta + render + filter/sort + reveal
+  // 4) Projekt:
 
   (function projects() {
     const grid = $('#projects-grid');
