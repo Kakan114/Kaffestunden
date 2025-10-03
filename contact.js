@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
   nameInput.addEventListener('input', checkName);
   emailInput.addEventListener('input', checkEmail);
 phoneInput.addEventListener('input', () => {
-  phoneInput.value = phoneInput.value.replace(/\D/g, ''); // tar bort allt som inte är siffror
+  phoneInput.value = phoneInput.value.replace(/\D/g, ''); 
 });  messageInput.addEventListener('input', checkMessage);
 
-  // När formuläret skickas
-  form.addEventListener('submit', (e) => {
-    e.preventDefault(); // STOPPAR sidan från att ladda om
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); 
 
     const isNameOk = checkName();
     const isEmailOk = checkEmail();
@@ -69,7 +69,7 @@ phoneInput.addEventListener('input', () => {
     const isMessageOk = checkMessage();
 
     if (isNameOk && isEmailOk && isPhoneOk && isMessageOk) {
-      form.reset(); // töm formuläret
+      form.reset(); 
       statusMessage.textContent = 'Tack, skickat!';
       statusMessage.hidden = false;
       setTimeout(() => statusMessage.hidden = true, 3000);
