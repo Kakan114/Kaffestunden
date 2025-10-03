@@ -17,7 +17,7 @@ main {
   padding: 0 1rem;
 }
 
-/* Bildspel */
+
 .slideshow {
   position: relative;
   max-width: 800px;      
@@ -47,7 +47,7 @@ height: 100%;
 object-fit: cover; 
 }
 
-/* knappar */
+
 .nav {
   position: absolute;
   top: 50%;
@@ -65,7 +65,7 @@ object-fit: cover;
 .next { right: .5rem; }
 
 
-/*  Kortet överst  */
+
 .bild-text{
   border: solid 1px #d8c4b6;
   border-radius: 10px;
@@ -97,7 +97,7 @@ object-fit: cover;
   color: #2e2a27;
 }
 
-/* Mindre skärmar */
+
 @media (max-width: 520px) {
   .nav { width: 40px; height: 40px; }
 }
@@ -135,7 +135,7 @@ object-fit: cover;
 .project-card p:last-child {
   margin-bottom: 0.75rem;
 }
-/* Nav-baren */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -145,14 +145,14 @@ object-fit: cover;
   border-bottom: 1px solid #d8c4b6;
 }
 
-/* Loggan rubrik */
+
 .logo {
   font-weight: bold;
   font-size: 1.2rem;
   color: beige;
 }
 
-/* Länkar */
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -165,7 +165,7 @@ object-fit: cover;
   color: beige;
 }
 
-/* Meny-ikon */
+
 .menu-toggle {
   display: none;
   font-size: 1.5rem;
@@ -174,7 +174,7 @@ object-fit: cover;
   cursor: pointer;
 }
 
-/* Mobil-vy  */
+
 @media (max-width: 700px) {
   .menu-toggle {
     display: block;   

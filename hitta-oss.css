@@ -1,7 +1,7 @@
 .find-us {
   text-align: center;
   padding: 50px 20px;
-  background-color: #fafafa; /* ljus bakgrund för kontrast */
+  background-color: #fafafa; 
 }
 
 .find-us h2 {
@@ -17,15 +17,15 @@
 }
 
 .map-container {
-  max-width: 800px;       /* begränsar kartans maxstorlek */
-  margin: 0 auto;         /* centrerar */
-  border-radius: 15px;    /* rundade hörn */
-  overflow: hidden;       /* så att hörnen gäller även för kartan */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* snygg skugga */
+  max-width: 800px;      
+  margin: 0 auto;        
+  border-radius: 15px;    
+  overflow: hidden;       
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
 }
 
 .map-container iframe {
-  width: 100%;            /* fyller alltid hela container */
-  height: 450px;          /* fast höjd */
-  border: 0;              /* tar bort standardkant */
+  width: 100%;            
+  height: 450px;          
+  border: 0;              
 }
