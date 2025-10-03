@@ -1,90 +1,24 @@
-html { scroll-behavior: smooth; }            /* mjuk scroll när man klickar på länkar */
-* { box-sizing: border-box; }                /* enklare boxmodell */
-img { max-width: 100%; display: block; }     /* gör så bilder inte sticker utanför */
+html { 
+  scroll-behavior: smooth; 
+}           
 
-.main-header{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  background: #fff;
-  border-bottom: 1px solid #e6e6e6;
-}
-
-.brand { display: flex; align-items: center; gap: 8px; }  /* logga + text */
-.brand .site-title { text-decoration: none; color: #222; font-weight: 700; }
-.brand .logo img { width: 32px; height: 32px; border-radius: 6px; object-fit: cover; }
-
-.nav-toggle {                                /* hamburgarknapp */
-  width: 40px; height: 40px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border: 1px solid #ddd; border-radius: 8px; background: #fff; cursor: pointer;
-}
-.nav-toggle-bar { width: 18px; height: 2px; background: #333; display: block; position: relative; }
-.nav-toggle-bar::before,
-.nav-toggle-bar::after {                     /* två extra linjer för hamburgaren */
-  content: ""; position: absolute; left: 0; right: 0; height: 2px; background: #333;
-}
-.nav-toggle-bar::before { top: -6px; }
-.nav-toggle-bar::after { top: 6px; }
+img { 
+  max-width: 100%; 
+  display: block; 
+}     
 
 
-.main-nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.main-nav a { text-decoration: none; color: #222; }
-
-body.nav-open .main-nav { transform: translateX(0); }  /* öppna menyn med JS */
-
-/* ===== Mobilmeny ===== */
-@media (max-width: 767px) {
-  .main-nav {
-    position: absolute;
-    top: 100%;          /* precis under headern */
-    right: 0;           /* fäst till höger */
-    width: 200px;       /* bredd på menyn i mobil */
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    padding: 20px;
-    transform: scaleY(0);       /* gömd från början */
-    transform-origin: top;
-    transition: transform 0.3s ease;
-  }
-
-  body.nav-open .main-nav {
-    transform: scaleY(1);       /* visas när man trycker på hamburgaren */
-  }
-}
-
-@media (min-width: 768px) {
-  .nav-toggle {
-    display: none;   /* göm hamburgarknappen på desktop */
-  }
-  
-  .main-nav {
-    position: static; 
-    transform: none !important;
-    width: auto;
-    background: transparent;
-    border: none;
-    padding: 0;
-  }
-
-  .main-nav ul {
-    display: flex;
-    gap: 16px;
-  }
-}
-
-.hero {                                      /* hero (första sektionen) */
+.hero {                                     
   min-height: 60vh;
-  display: grid; place-items: center;
+  display: grid; 
+  place-items: center;
   padding: 40px 16px;
   text-align: center;
   background: #f5f5f5;
 }
-.hero h1 { margin: 0 0 10px; }
+.hero h1 { 
+  margin: 0 0 10px; 
+}
 .cta-button {                                /* knapp i hero */
   display: inline-block;
   padding: 10px 16px;
@@ -148,17 +82,6 @@ body.nav-open .main-nav { transform: translateX(0); }  /* öppna menyn med JS */
   margin-top: 8px;
 }
 
-.slideshow-dots {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  margin-top: 6px;
-}
-
-.dot.is-active {
-  background: #6b4226;
-  color: #fff;
-}
 
 .projects {
   background: #fafafa;
