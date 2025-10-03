@@ -7,7 +7,7 @@
   let index = 0;
 
   function setActive(newIndex) {
-    index = (newIndex + slides.length) % slides.length; // wrap 0..n-1
+    index = (newIndex + slides.length) % slides.length; 
     slides.forEach((el, i) => el.classList.toggle('is-active', i === index));
   }
 
@@ -17,7 +17,7 @@
   nextBtn.addEventListener('click', next);
   prevBtn.addEventListener('click', prev);
 
-  // Init
+  
   setActive(0);
 })();
 
@@ -40,7 +40,7 @@ axios.get('denis.json')
   })
   .catch(err => console.error('Kunde inte ladda denis.json', err));
 
-// --- Enkel mobilmeny ---
+//mobilmeny
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 

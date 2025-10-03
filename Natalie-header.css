@@ -1,5 +1,5 @@
 .main-header {
-  position: relative; /* referens för absoluta element inuti */
+  position: relative; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,37 +35,35 @@
 }
 
 #menu-toggle {
-  display: none; /* checkboxen syns inte */
+  display: none; 
 }
 
 #menu-icon {
-  display: none; /* hamburger-ikonen syns bara på mobil */
+  display: none; 
   font-size: 2rem;
   cursor: pointer;
 }
 
-/* Mobilmeny (<768px) */
 @media (max-width: 768px) {
   #menu-icon {
     display: block;
   }
 
   #main-nav {
-    display: none;                /* göm menyn som standard */
+    display: none;                
     flex-direction: column;
     position: absolute;
-    top: 60px;                     /* under headern */
-    left: 0;                        /* börja från vänster */
-    right: 0;                       /* fyll hela bredden */
+    top: 60px;                    
+    left: 0;                        
+    right: 0;                       
     margin: 0 auto;
-    width: 100%;                    /* täcker hela headerns bredd */
+    width: 100%;                    
     border-radius: 0 0 10px 10px;
     padding: 10px;
     box-sizing: border-box;
     z-index: 1000;
   }
 
-  /* När checkboxen är kryssad visas menyn */
   #menu-toggle:checked ~ #main-nav {
     display: flex;
   }
@@ -76,13 +74,12 @@
   }
 }
 
-/* Mellanstora skärmar (769px–1279px) */
 @media (min-width: 769px) and (max-width: 1279px) {
   #main-nav {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;   /* Bryter menyn på flera rader om det inte får plats */
-    gap: 10px;         /* mindre gap för mellanskärm */
+    flex-wrap: wrap;   
+    gap: 10px;         
     position: static;
     width: auto;
     padding: 0;
