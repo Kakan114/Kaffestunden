@@ -43,10 +43,8 @@
     });
   }, { threshold: 0.12 });
 
-  // Reveal på statiska .reveal
   $$('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Fyll staplar när #skills syns
   (function skillsFill() {
     const section = $('#skills');
     if (!section) return;
@@ -130,7 +128,6 @@
         </article>
       `).join('');
 
-      // Reveal på ny-renderade kort
       $$('.project-card.reveal', grid).forEach(el => revealObserver.observe(el));
     }
 
@@ -154,7 +151,6 @@
       render(list);
     }
 
-    // Debounce för filter-input
     let t;
     fIn && fIn.addEventListener('input', () => {
       clearTimeout(t);
@@ -162,7 +158,7 @@
     });
     sSel && sSel.addEventListener('change', apply);
 
-    // Hämta data
+    
     axios.get('Darin-projects.json')
       .then(res => { ALL = Array.isArray(res.data) ? res.data : []; apply(); })
       .catch(() => { grid.innerHTML = '<p>Kunde inte läsa in projekt just nu.</p>'; });
