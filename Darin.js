@@ -113,14 +113,14 @@
       grid.innerHTML = list.map(p => `
         <article class="project-card reveal" role="listitem">
           <div class="project-media">
-            <img src="${p.image || 'placeholder.jpg'}"
+            <img src="${p.image}"
                  alt="${p.title ? `Projektbild: ${p.title}` : 'Projektbild'}"
                  loading="lazy">
           </div>
           <div class="project-body">
-            <h3 class="project-title">${p.title || 'Projekt'}</h3>
-            <div class="project-meta">${p.client ?? '—'} • ${p.year ?? '—'}</div>
-            <p class="project-summary">${p.summary || ''}</p>
+            <h3 class="project-title">${p.title}</h3>
+            <div class="project-meta">${p.client} ${p.year}</div>
+            <p class="project-summary">${p.summary}</p>
           </div>
           <div class="project-tags">
             ${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}
