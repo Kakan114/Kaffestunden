@@ -1,5 +1,5 @@
 // ===== Små hjälpare =====
-(function () {
+(() => {
   const $  = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
@@ -17,7 +17,6 @@
       btn.setAttribute('aria-label', open ? 'Stäng meny' : 'Öppna meny');
     });
 
-    // Stäng när man klickar en länk i menyn (mobil)
     nav.addEventListener('click', (e) => {
       if (!e.target.closest('a')) return;
       document.body.classList.remove('nav-open');
@@ -25,7 +24,6 @@
       btn.setAttribute('aria-label', 'Öppna meny');
     });
 
-    // Stäng när vi går upp i desktop-bredd
     matchMedia('(min-width: 768px)').addEventListener('change', (ev) => {
       if (!ev.matches) return;
       document.body.classList.remove('nav-open');
@@ -35,25 +33,20 @@
   })();
 
   // =========================
-  // 2) Reveal + Skills
+  // 2) Reveal + Skills (utan reduced motion)
   // =========================
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealObserver = new IntersectionObserver((entries, io) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
 
-  // En observer som sätter .is-visible när element kommer in i bild
-  const revealObserver = reduceMotion
-    ? { observe(el){ el.classList.add('is-visible'); } }
-    : new IntersectionObserver((entries, io) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        });
-      }, { threshold: 0.12 });
-
-  // Applicera reveal på statiska .reveal
+  // Reveal på statiska .reveal
   $$('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Skills: fyll staplar när #skills blir synlig
+  // Fyll staplar när #skills syns
   (function skillsFill() {
     const section = $('#skills');
     if (!section) return;
@@ -66,11 +59,6 @@
       });
     };
 
-    if (reduceMotion) {
-      fillBars(); // kör direkt om användaren vill minska rörelser
-      return;
-    }
-
     const io = new IntersectionObserver((entries, io2) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -79,40 +67,39 @@
       });
     });
 
-    // Se till att sektionen observeras (lägg gärna .reveal i HTML för fade-in)
     io.observe(section);
   })();
 
   // =========================
-  // 3) Bildspel
+  // 3) Bildspel (utan dots)
   // =========================
- (function slideshow() {
-  const root   = $('.slideshow');
-  if (!root) return;
+  (function slideshow() {
+    const root   = $('.slideshow');
+    if (!root) return;
 
-  const slides = $$('.slide', root);
-  const prev   = $('.prev', root);
-  const next   = $('.next', root);
-  if (!slides.length || !prev || !next) return;
+    const slides = $$('.slide', root);
+    const prev   = $('.prev', root);
+    const next   = $('.next', root);
+    if (!slides.length || !prev || !next) return;
 
-  let i = 0;
-  const wrap = n => (n + slides.length) % slides.length;
+    let i = 0;
+    const wrap = n => (n + slides.length) % slides.length;
 
-  function show(idx) {
-    i = wrap(idx);
-    slides.forEach((el, n) => el.classList.toggle('is-active', n === i));
-  }
+    function show(idx) {
+      i = wrap(idx);
+      slides.forEach((el, n) => el.classList.toggle('is-active', n === i));
+    }
 
-  next.addEventListener('click', () => show(i + 1));
-  prev.addEventListener('click', () => show(i - 1));
+    next.addEventListener('click', () => show(i + 1));
+    prev.addEventListener('click', () => show(i - 1));
 
-  root.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); show(i - 1); }
-  });
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); show(i - 1); }
+    });
 
-  show(0);
-})();
+    show(0);
+  })();
 
   // =========================
   // 4) Projekt: hämta + render + filter/sort + reveal
@@ -168,7 +155,7 @@
       render(list);
     }
 
-    // Litet debounce för filter-input
+    // Debounce för filter-input
     let t;
     fIn && fIn.addEventListener('input', () => {
       clearTimeout(t);

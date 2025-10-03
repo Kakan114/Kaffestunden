@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
+  const phoneInput = document.getElementById('phone');
   const messageInput = document.getElementById('message');
 
   const nameError = document.getElementById('name-error');
   const emailError = document.getElementById('email-error');
+  const phoneError = document.getElementById('phone-error');
   const messageError = document.getElementById('message-error');
-
   const statusMessage = document.getElementById('form-status');
 
   // Valideringsfunktioner
@@ -31,6 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function checkPhone () {
+    if (phoneInput.value.trim().length > 9) {
+      phoneError.hidden = true;
+      return true;
+    } else {
+      phoneError.hidden = false;
+      return false;
+    }
+  }
+
   function checkMessage() {
     if (messageInput.value.trim().length >= 10) {
       messageError.hidden = true;
@@ -44,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Realtidsvalidering
   nameInput.addEventListener('input', checkName);
   emailInput.addEventListener('input', checkEmail);
-  messageInput.addEventListener('input', checkMessage);
+phoneInput.addEventListener('input', () => {
+  phoneInput.value = phoneInput.value.replace(/\D/g, ''); // tar bort allt som inte är siffror
+});  messageInput.addEventListener('input', checkMessage);
 
   // När formuläret skickas
   form.addEventListener('submit', (e) => {
@@ -52,9 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isNameOk = checkName();
     const isEmailOk = checkEmail();
+    const isPhoneOk = checkPhone();
     const isMessageOk = checkMessage();
 
-    if (isNameOk && isEmailOk && isMessageOk) {
+    if (isNameOk && isEmailOk && isPhoneOk && isMessageOk) {
       form.reset(); // töm formuläret
       statusMessage.textContent = 'Tack, skickat!';
       statusMessage.hidden = false;
