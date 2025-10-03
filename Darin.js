@@ -1,11 +1,11 @@
-// ===== Små hjälpare =====
+
 (() => {
   const $  = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // =========================
+  
   // 1) Mobilmeny
-  // =========================
+  
   (function mobileNav() {
     const btn = $('.nav-toggle');
     const nav = $('#main-nav');
@@ -32,9 +32,9 @@
     });
   })();
 
-  // =========================
-  // 2) Reveal + Skills (utan reduced motion)
-  // =========================
+  
+  // 2) Reveal + Skills 
+  
   const revealObserver = new IntersectionObserver((entries, io) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -70,9 +70,8 @@
     io.observe(section);
   })();
 
-  // =========================
-  // 3) Bildspel (utan dots)
-  // =========================
+  
+  // 3) Bildspel 
   (function slideshow() {
     const root   = $('.slideshow');
     if (!root) return;
@@ -101,9 +100,9 @@
     show(0);
   })();
 
-  // =========================
+
   // 4) Projekt: hämta + render + filter/sort + reveal
-  // =========================
+
   (function projects() {
     const grid = $('#projects-grid');
     const fIn  = $('#filterInput');
