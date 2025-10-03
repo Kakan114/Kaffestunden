@@ -6,6 +6,8 @@ window.addEventListener("load", () => {
 });
 
 
+
+
 let projects = [];
 let filteredProjects = [];
 
